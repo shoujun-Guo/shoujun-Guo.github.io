@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/manifest.json</loc>
+    <loc>https://shoujun-guo.github.io/manifest.json</loc>
     
     <lastmod>2022-08-25</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/a27e2ba2.html</loc>
+    <loc>https://shoujun-guo.github.io/posts/a27e2ba2.html</loc>
     
     <lastmod>2022-08-25</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/4a17b156.html</loc>
+    <loc>https://shoujun-guo.github.io/posts/4a17b156.html</loc>
     
     <lastmod>2022-08-25</lastmod>
     
@@ -30,7 +30,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://shoujun-guo.github.io/</loc>
     <lastmod>2022-08-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

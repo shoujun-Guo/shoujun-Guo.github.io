@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>低调点同学！</title>
-  
+  <icon>https://www.gravatar.com/avatar/0b4177cbdb29bc9f52e845697f4c9044</icon>
   <subtitle>生活明朗 万物可爱</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://shoujun-guo.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://shoujun-guo.github.io/"/>
   <updated>2022-08-25T12:50:23.059Z</updated>
-  <id>http://example.com/</id>
+  <id>https://shoujun-guo.github.io/</id>
   
   <author>
     <name>郭守军</name>
-    
+    <email>1417839614@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>hexo部署</title>
-    <link href="http://example.com/posts/a27e2ba2.html"/>
-    <id>http://example.com/posts/a27e2ba2.html</id>
+    <link href="https://shoujun-guo.github.io/posts/a27e2ba2.html"/>
+    <id>https://shoujun-guo.github.io/posts/a27e2ba2.html</id>
     <published>2022-08-25T11:25:31.000Z</published>
     <updated>2022-08-25T12:50:23.059Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/posts/4a17b156.html"/>
-    <id>http://example.com/posts/4a17b156.html</id>
+    <link href="https://shoujun-guo.github.io/posts/4a17b156.html"/>
+    <id>https://shoujun-guo.github.io/posts/4a17b156.html</id>
     <published>2022-08-25T11:07:45.502Z</published>
     <updated>2022-08-25T12:50:23.052Z</updated>
     
