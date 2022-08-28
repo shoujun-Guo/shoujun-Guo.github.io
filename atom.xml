@@ -6,7 +6,7 @@
   <link href="https://shoujun-guo.github.io/atom.xml" rel="self"/>
   
   <link href="https://shoujun-guo.github.io/"/>
-  <updated>2022-08-28T07:24:08.672Z</updated>
+  <updated>2022-08-28T11:41:01.281Z</updated>
   <id>https://shoujun-guo.github.io/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="https://shoujun-guo.github.io/posts/2ce42c86.html"/>
     <id>https://shoujun-guo.github.io/posts/2ce42c86.html</id>
     <published>2022-08-28T07:14:19.000Z</published>
-    <updated>2022-08-28T07:24:08.672Z</updated>
+    <updated>2022-08-28T11:41:01.281Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="vue内嵌网页方法"><a href="#vue内嵌网页方法" class="headerlink" title="vue内嵌网页方法"></a>vue内嵌网页方法</h2><p>&lt;!DOCTYPE html&gt;</p><html>    <head>        <meta charset="UTF-8">        <title></title>    </head>    <body>        <!--需求：把百度搜索框内嵌到自己的网页中-->        <!--解决方案分析-->        <!--input type="text" 表示是一个输入框-->        <!--input type="submit" 表示一个提交按钮 相当于一个开关告诉form要发送数据-->        <form action="https://www.baidu.com/s">            <input type="text" name="wd"/><input type="submit"  value="百度一下"/>        </form>    </body></html>]]></content>
+    <content type="html"><![CDATA[<h2 id="vue内嵌网页方法"><a href="#vue内嵌网页方法" class="headerlink" title="vue内嵌网页方法"></a>vue内嵌网页方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!--需求：把百度搜索框内嵌到自己的网页中--&gt;</span><br><span class="line">&lt;!--解决方案分析--&gt;</span><br><span class="line">&lt;!--input type=&quot;text&quot; 表示是一个输入框--&gt;</span><br><span class="line">&lt;!--input type=&quot;submit&quot; 表示一个提交按钮 相当于一个开关告诉form要发送数据--&gt;</span><br><span class="line">&lt;form action=&quot;https://www.baidu.com/s&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;wd&quot;/&gt;&lt;input type=&quot;submit&quot;  value=&quot;百度一下&quot;/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><h3 id="vue中空格的使用"><a href="#vue中空格的使用" class="headerlink" title="vue中空格的使用"></a>vue中空格的使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&amp;#32; == 普通的英文半角空格</span><br><span class="line"></span><br><span class="line">&amp;#160; == &amp;nbsp; == &amp;#xA0; == no-break space （普通的英文半角空格但不换行）</span><br><span class="line"></span><br><span class="line">&amp;#12288; == 中文全角空格 （一个中文宽度）</span><br><span class="line"></span><br><span class="line">&amp;#8194; == &amp;ensp; == en空格 （半个中文宽度）</span><br><span class="line"></span><br><span class="line">&amp;#8195; == &amp;emsp; == em空格 （一个中文宽度）</span><br><span class="line"></span><br><span class="line">&amp;#8197; == 四分之一em空格 （四分之一中文宽度）</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;vue内嵌网页方法&quot;&gt;&lt;a href=&quot;#vue内嵌网页方法&quot; class=&quot;headerlink&quot; title=&quot;vue内嵌网页方法&quot;&gt;&lt;/a&gt;vue内嵌网页方法&lt;/h2&gt;&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html&gt;
-    &lt;head</summary>
+    <summary type="html">&lt;h2 id=&quot;vue内嵌网页方法&quot;&gt;&lt;a href=&quot;#vue内嵌网页方法&quot; class=&quot;headerlink&quot; title=&quot;vue内嵌网页方法&quot;&gt;&lt;/a&gt;vue内嵌网页方法&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;t</summary>
       
     
     
