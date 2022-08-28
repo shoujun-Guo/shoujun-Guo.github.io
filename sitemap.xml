@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shoujun-guo.github.io/posts/2ce42c86.html</loc>
+    
+    <lastmod>2022-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shoujun-guo.github.io/posts/d87f7e0c.html</loc>
+    
+    <lastmod>2022-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shoujun-guo.github.io/posts/4a17b156.html</loc>
     
     <lastmod>2022-08-27</lastmod>
@@ -76,7 +94,7 @@
 
   <url>
     <loc>https://shoujun-guo.github.io/</loc>
-    <lastmod>2022-08-27</lastmod>
+    <lastmod>2022-08-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -84,14 +102,28 @@
   
   <url>
     <loc>https://shoujun-guo.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-08-27</lastmod>
+    <lastmod>2022-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://shoujun-guo.github.io/tags/Hexo/</loc>
-    <lastmod>2022-08-27</lastmod>
+    <lastmod>2022-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shoujun-guo.github.io/tags/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2022-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shoujun-guo.github.io/tags/vue/</loc>
+    <lastmod>2022-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

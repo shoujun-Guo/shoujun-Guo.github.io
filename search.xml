@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>vue内嵌网页</title>
+      <link href="/posts/2ce42c86.html"/>
+      <url>/posts/2ce42c86.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="vue内嵌网页方法"><a href="#vue内嵌网页方法" class="headerlink" title="vue内嵌网页方法"></a>vue内嵌网页方法</h2><p>&lt;!DOCTYPE html&gt;</p><html>    <head>        <meta charset="UTF-8">        <title></title>    </head>    <body>        <!--需求：把百度搜索框内嵌到自己的网页中-->        <!--解决方案分析-->        <!--input type="text" 表示是一个输入框-->        <!--input type="submit" 表示一个提交按钮 相当于一个开关告诉form要发送数据-->        <form action="https://www.baidu.com/s">            <input type="text" name="wd"/><input type="submit"  value="百度一下"/>        </form>    </body></html>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>test</title>
+      <link href="/posts/d87f7e0c.html"/>
+      <url>/posts/d87f7e0c.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><a href="https://imgse.com/i/vRbzu9"><img src="https://s1.ax1x.com/2022/08/27/vRbzu9.png" alt="vRbzu9.png"></a></p><h2 id="第二张"><a href="#第二张" class="headerlink" title="第二张"></a>第二张</h2><p>![(<a href="https://raw.githubusercontent.com/shoujun-Guo/picture/main/img/20220827184151.png">https://raw.githubusercontent.com/shoujun-Guo/picture/main/img/20220827184151.png</a>)]<br>![(<a href="https://raw.githubusercontent.com/shoujun-Guo/picture/main/img/20220827190004.png">https://raw.githubusercontent.com/shoujun-Guo/picture/main/img/20220827190004.png</a>)]</p><p><img src="https://raw.githubusercontent.com/shoujun-Guo/picture/main/img/20220827190004.png" alt=""></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo部署</title>
       <link href="/posts/a27e2ba2.html"/>
       <url>/posts/a27e2ba2.html</url>
