@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>element-ui样式修改“</title>
+      <link href="/posts/dbc5c22f.html"/>
+      <url>/posts/dbc5c22f.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="项目中需要修改element-ui中NavMenu的样式，在修改划过样式时，发现-el-menu-item可以直接修改，但-el-submenu-title修改样式不生效"><a href="#项目中需要修改element-ui中NavMenu的样式，在修改划过样式时，发现-el-menu-item可以直接修改，但-el-submenu-title修改样式不生效" class="headerlink" title="项目中需要修改element-ui中NavMenu的样式，在修改划过样式时，发现.el-menu-item可以直接修改，但.el-submenu__title修改样式不生效"></a>项目中需要修改element-ui中NavMenu的样式，在修改划过样式时，发现.el-menu-item可以直接修改，但.el-submenu__title修改样式不生效</h4><h4 id="网友分析原因：二级菜单是使用slot添加的，单独给这个slot添加样式，等渲染出来，样式没有了，需要有深选择器。"><a href="#网友分析原因：二级菜单是使用slot添加的，单独给这个slot添加样式，等渲染出来，样式没有了，需要有深选择器。" class="headerlink" title="网友分析原因：二级菜单是使用slot添加的，单独给这个slot添加样式，等渲染出来，样式没有了，需要有深选择器。"></a>网友分析原因：二级菜单是使用slot添加的，单独给这个slot添加样式，等渲染出来，样式没有了，需要有深选择器。</h4><h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">/* 深选择器：如果相对设置了scoped的子组件里的元素进行控制可以使用&#x27;&gt;&gt;&gt;&#x27;或者&#x27;deep&#x27;设置选中或悬浮的颜色*/</span><br><span class="line">.el-submenu /deep/ .el-submenu__title &#123;</span><br><span class="line">    height: 50px !important;</span><br><span class="line">    line-height: 50px !important;</span><br><span class="line">  &#125;</span><br><span class="line">测试没效果..应该是我的问题</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line"></span><br><span class="line">按照在操作台中看到的class名，写在全局（非scoped）的style中，</span><br><span class="line">此处的class名是.el-submenu__title</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.el-submenu__title&#123;</span><br><span class="line">  font-size: 1.8em !important;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">测试有效</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「sjzlovezhz」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/sjzlovezhz/article/details/121655183</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>天气API</title>
       <link href="/posts/4c876a2e.html"/>
       <url>/posts/4c876a2e.html</url>
