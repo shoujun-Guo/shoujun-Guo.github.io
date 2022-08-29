@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vue组件的显示与隐藏 | 低调点同学！</title><meta name="keywords" content="vue"><meta name="author" content="郭守军,1417839614@qq.com"><meta name="copyright" content="郭守军"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vue子组件的显示与隐藏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue组件的显示与隐藏">
+<meta property="og:url" content="https://shoujun-guo.github.io/posts/8f37665f.html">
+<meta property="og:site_name" content="低调点同学！">
+<meta property="og:description" content="Vue子组件的显示与隐藏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shoujun-guo.github.io/img/03.jpg">
+<meta property="article:published_time" content="2022-08-29T10:31:14.000Z">
+<meta property="article:modified_time" content="2022-08-29T10:55:07.041Z">
+<meta property="article:author" content="郭守军">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shoujun-guo.github.io/img/03.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://shoujun-guo.github.io/posts/8f37665f"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#49b1f5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue组件的显示与隐藏',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-29 18:55:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.0.5/lib/clock.min.css" /><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="低调点同学！" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/111932683?v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinemas/index.html"><i class="fa-fw fas fa-heart"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/MC/"><i class="fa-fw fas fa-folder-open"></i><span> 相册</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/03.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">低调点同学！</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-video"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinemas/index.html"><i class="fa-fw fas fa-heart"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/MC/"><i class="fa-fw fas fa-folder-open"></i><span> 相册</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue组件的显示与隐藏</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-29T10:31:14.000Z" title="发表于 2022-08-29 18:31:14">2022-08-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-29T10:55:07.041Z" title="更新于 2022-08-29 18:55:07">2022-08-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue组件的显示与隐藏"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Vue子组件的显示与隐藏"><a href="#Vue子组件的显示与隐藏" class="headerlink" title="Vue子组件的显示与隐藏"></a>Vue子组件的显示与隐藏</h3><p>在使用Vue开发前端页面的过程中，经常都会遇到需要在父组件中控制子组件的显示/隐藏，比如弹出窗口。最简单的方法就是：通过父子组件间的数据双向绑定来实现。这种方法虽然简单，但只是针对于父与子组件这种关系来实现的。如果是子组件与子组件之间，可以考虑使用Vuex来完成。</p>
+<p>另外我自己也是一个前端小白，为了更方便大家理解，我将代码拆分成了两个步骤：</p>
+<ul>
+<li>第一步是实现父对子的显示/隐藏的控制（v-show）</li>
+<li>第二步是实现子组件对自己的隐藏（父子组件参数传递）</li>
+</ul>
+<h3 id="第一步-使用v-show"><a href="#第一步-使用v-show" class="headerlink" title="第一步 使用v-show"></a>第一步 使用v-show</h3><p>这一步首先实现在父组件通过v-show对子组件的显示/隐藏进行控制。</p>
+<p>父组件中有显示/隐藏按钮，点击后显示/隐藏子组件，效果如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20190414213056919.gif" alt="https://img-blog.csdnimg.cn/20190414213056919.gif"></p>
+<h3 id="1-1-父组件"><a href="#1-1-父组件" class="headerlink" title="1.1 父组件"></a>1.1 父组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;contain&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是父组件页面&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;showDialog(true)&quot;&gt;显示&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;showDialog(false)&quot;&gt;隐藏&lt;/button&gt;</span><br><span class="line">    &lt;!-- 这里使用v-show --&gt;</span><br><span class="line">    &lt;subDialog v-show=&quot;dialog_visible&quot;&gt;&lt;/subDialog&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入子组件</span><br><span class="line">import subDialog from &quot;@/components/Dialog/subDialog&quot;;</span><br><span class="line"> </span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123; subDialog &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      // 控制子组件显示与隐藏的标识，类型为Boolean</span><br><span class="line">      dialog_visible: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    showDialog(visible) &#123;</span><br><span class="line">      this.dialog_visible = visible;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">/* 加入css代码仅是为了使界面更加直观 */</span><br><span class="line">.contain &#123;</span><br><span class="line">  height: 300px;</span><br><span class="line">  width: 400px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  background-color: #9dd3fa;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>Vue中的v-show指令会通过切换CSS中display属性的值，使对应元素显示/隐藏。</p>
+<p>简化了click方法，将显示/隐藏按钮的点击事件写到了一起。</p>
+<h3 id="1-2-子组件"><a href="#1-2-子组件" class="headerlink" title="1.2 子组件"></a>1.2 子组件</h3><p>目前子组件中仅仅只是做界面的显示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;sub-contain&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是子组件窗口&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  </span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">/* 加入css代码仅是为了使界面更加直观 */</span><br><span class="line">.sub-contain &#123;</span><br><span class="line">  height: 150px;</span><br><span class="line">  width: 100%;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">  background-color: #1f6fb5;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-第二步-父子组件传参"><a href="#2-第二步-父子组件传参" class="headerlink" title="2 第二步 父子组件传参"></a>2 第二步 父子组件传参</h2><p>在第一步中，我们通过在父组件中修改dialog_visible的值，来控制子组件的显示/隐藏，非常简单。</p>
+<p>而下一步，我们还需要实现在子组件中隐藏（关闭）自己。</p>
+<p>原理上很简单，其实就是在子组件中，修改父组件中的dialog_visible参数嘛。</p>
+<p>最终的效果如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20190414213117334.gif" alt=""></p>
+<h3 id="2-1-父组件"><a href="#2-1-父组件" class="headerlink" title="2.1 父组件"></a>2.1 父组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;contain&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是父组件页面&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;showDialog(true)&quot;&gt;显示&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;showDialog(false)&quot;&gt;隐藏&lt;/button&gt;</span><br><span class="line">    &lt;!-- 新增了向子组件传递的参数dialog_visible 与 自定义事件dialogVisibleEvent --&gt;</span><br><span class="line">    &lt;subDialog </span><br><span class="line">	  v-show=&quot;dialog_visible&quot; </span><br><span class="line">      :dialog_visible=&quot;dialog_visible&quot;</span><br><span class="line">      @dialogVisibleEvent=&quot;showDialog&quot;&gt;</span><br><span class="line">   	&lt;/subDialog&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入子组件</span><br><span class="line">import subDialog from &quot;@/components/Dialog/subDialog&quot;;</span><br><span class="line"> </span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123; subDialog &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      // 控制子组件显示与隐藏的标识，类型为Boolean</span><br><span class="line">      dialog_visible: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    showDialog(visible) &#123;</span><br><span class="line">      this.dialog_visible = visible;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">/* 加入css代码仅是为了使界面更加直观 */</span><br><span class="line">.contain &#123;</span><br><span class="line">  height: 300px;</span><br><span class="line">  width: 400px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  background-color: #9dd3fa;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>父组件的变化并不大，主要有两个地方：</p>
+<ul>
+<li><p>向子组件传参，即将dialog_visible传递给子组件</p>
+</li>
+<li><p>设置自定义事件与其处理方法</p>
+</li>
+</ul>
+<h3 id="2-2-子组件"><a href="#2-2-子组件" class="headerlink" title="2.2 子组件"></a>2.2 子组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;sub-contain&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是子组件窗口&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;doClose&quot;&gt;隐藏&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    dialog_visible: Boolean</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      visible: this.dialog_visible</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    visible(val) &#123;</span><br><span class="line">      this.dialog_visible = val;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    doClose() &#123;</span><br><span class="line">      // 触发父组件中的dialogVisibleEvent事件，并传递参数</span><br><span class="line">      this.$emit(&#x27;dialogVisibleEvent&#x27;, false);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.sub-contain &#123;</span><br><span class="line">  height: 150px;</span><br><span class="line">  width: 100%;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">  background-color: #1f6fb5;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>子组件中增加了一个按钮，用于隐藏自身，通过触发父组件事件来修改父组件中dialog_visible的值。</p>
+<p>用一张图来表示父、子组件间数据双向绑定的数据流向是：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20190414213129265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0ODAyNDE2,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>如此便完成了Vue子组件的显示与隐藏。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://shoujun-guo.github.io">郭守军</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://shoujun-guo.github.io/posts/8f37665f.html">https://shoujun-guo.github.io/posts/8f37665f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://shoujun-guo.github.io" target="_blank">低调点同学！</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue/">vue</a></div><div class="post_share"><div class="social-share" data-image="/img/03.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/dbc5c22f.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/05.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">element-ui样式修改</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/dbc5c22f.html" title="element-ui样式修改"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/05.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">element-ui样式修改</div></div></a></div><div><a href="/posts/2ce42c86.html" title="vue内嵌网页"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/06.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-28</div><div class="title">vue内嵌网页</div></div></a></div><div><a href="/posts/4c876a2e.html" title="天气API"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-28</div><div class="title">天气API</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/111932683?v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">郭守军</div><div class="author-info__description">生活明朗,万物可爱.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shoujun-Guo"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的小站鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F"><span class="toc-number">1.</span> <span class="toc-text">Vue子组件的显示与隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%BD%BF%E7%94%A8v-show"><span class="toc-number">2.</span> <span class="toc-text">第一步 使用v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%88%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">1.1 父组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">1.2 子组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82"><span class="toc-number"></span> <span class="toc-text">2 第二步 父子组件传参</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%88%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">2.1 父组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">2.2 子组件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/8f37665f.html" title="Vue组件的显示与隐藏"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/03.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue组件的显示与隐藏"/></a><div class="content"><a class="title" href="/posts/8f37665f.html" title="Vue组件的显示与隐藏">Vue组件的显示与隐藏</a><time datetime="2022-08-29T10:31:14.000Z" title="发表于 2022-08-29 18:31:14">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/dbc5c22f.html" title="element-ui样式修改"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/05.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="element-ui样式修改"/></a><div class="content"><a class="title" href="/posts/dbc5c22f.html" title="element-ui样式修改">element-ui样式修改</a><time datetime="2022-08-29T09:48:07.000Z" title="发表于 2022-08-29 17:48:07">2022-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4c876a2e.html" title="天气API"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/04.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="天气API"/></a><div class="content"><a class="title" href="/posts/4c876a2e.html" title="天气API">天气API</a><time datetime="2022-08-28T12:20:13.000Z" title="发表于 2022-08-28 20:20:13">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2ce42c86.html" title="vue内嵌网页"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/06.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue内嵌网页"/></a><div class="content"><a class="title" href="/posts/2ce42c86.html" title="vue内嵌网页">vue内嵌网页</a><time datetime="2022-08-28T07:14:19.000Z" title="发表于 2022-08-28 15:14:19">2022-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d87f7e0c.html" title="test"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="test"/></a><div class="content"><a class="title" href="/posts/d87f7e0c.html" title="test">test</a><time datetime="2022-08-27T10:13:36.000Z" title="发表于 2022-08-27 18:13:36">2022-08-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 郭守军</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async src="//at.alicdn.com/t/c/font_3611506_idqu39qjx0s.js"></script><div class="aplayer no-destroy" data-id="1708664797" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.0.5/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '07687609e8de43b59a4fbfb6aa0af9ae';
+  var gaud_map_key = '70e73894318d6ab80e586e3a11be8054';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.0.5/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/4c876a2e.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/04.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-28</span><a class="blog-slider__title" href="posts/4c876a2e.html" alt="">天气API</a><div class="blog-slider__text">几个免费的天气API~</div><a class="blog-slider__button" href="posts/4c876a2e.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/4a17b156.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/05.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-25</span><a class="blog-slider__title" href="posts/4a17b156.html" alt="">Hello World</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="posts/4a17b156.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/a27e2ba2.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/03.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-25</span><a class="blog-slider__title" href="posts/a27e2ba2.html" alt="">hexo部署</a><div class="blog-slider__text">记录搭建博客的经历~</div><a class="blog-slider__button" href="posts/a27e2ba2.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/dbc5c22f.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/05.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-29</span><a class="blog-slider__title" href="posts/dbc5c22f.html" alt="">element-ui样式修改</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="posts/dbc5c22f.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/8f37665f.html" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/03.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-29</span><a class="blog-slider__title" href="posts/8f37665f.html" alt="">Vue组件的显示与隐藏</a><div class="blog-slider__text">Vue子组件的显示与隐藏</div><a class="blog-slider__button" href="posts/8f37665f.html" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://cdn.cbd.int/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
