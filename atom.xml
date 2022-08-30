@@ -6,7 +6,7 @@
   <link href="https://shoujun-guo.github.io/atom.xml" rel="self"/>
   
   <link href="https://shoujun-guo.github.io/"/>
-  <updated>2022-08-29T10:55:07.041Z</updated>
+  <updated>2022-08-30T03:10:48.478Z</updated>
   <id>https://shoujun-guo.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue深度选择器</title>
+    <link href="https://shoujun-guo.github.io/posts/9a38f61c.html"/>
+    <id>https://shoujun-guo.github.io/posts/9a38f61c.html</id>
+    <published>2022-08-30T03:07:12.000Z</published>
+    <updated>2022-08-30T03:10:48.478Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="在vue项目开发中，我们一般都是-…-中编写只会影响当前组件内的样式，但如果最后将这些组件整合的时候发现有些样式不够完美（或需要覆盖element-ui中的样式时），想要去修改样式时却发现无法生效，去掉scoped的话又会影响全局样式。"><a href="#在vue项目开发中，我们一般都是-…-中编写只会影响当前组件内的样式，但如果最后将这些组件整合的时候发现有些样式不够完美（或需要覆盖element-ui中的样式时），想要去修改样式时却发现无法生效，去掉scoped的话又会影响全局样式。" class="headerlink" title="在vue项目开发中，我们一般都是 …. 中编写只会影响当前组件内的样式，但如果最后将这些组件整合的时候发现有些样式不够完美（或需要覆盖element-ui中的样式时），想要去修改样式时却发现无法生效，去掉scoped的话又会影响全局样式。"></a>在vue项目开发中，我们一般都是<style lang="scss" scoped> …. </style>中编写只会影响当前组件内的样式，但如果最后将这些组件整合的时候发现有些样式不够完美（或需要覆盖element-ui中的样式时），想要去修改样式时却发现无法生效，去掉scoped的话又会影响全局样式。</h5><h5 id="在网上找了很久，发现可以使用-gt-gt-gt-或-deep-来解决"><a href="#在网上找了很久，发现可以使用-gt-gt-gt-或-deep-来解决" class="headerlink" title="在网上找了很久，发现可以使用&gt;&gt;&gt;或/deep/来解决"></a>在网上找了很久，发现可以使用&gt;&gt;&gt;或/deep/来解决</h5><h3 id="1-gt-gt-gt"><a href="#1-gt-gt-gt" class="headerlink" title="1.&gt;&gt;&gt;"></a>1.<strong>&gt;&gt;&gt;</strong></h3><h5 id="如果vue中style使用的是css，那么则可以使用-gt-gt-gt"><a href="#如果vue中style使用的是css，那么则可以使用-gt-gt-gt" class="headerlink" title="如果vue中style使用的是css，那么则可以使用&gt;&gt;&gt;"></a>如果vue中style使用的是css，那么则可以使用<code>&gt;&gt;&gt;</code></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;css&quot; scoped&gt;</span><br><span class="line">.a &gt;&gt;&gt; .b &#123; </span><br><span class="line"> /* ... */</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><h3 id="2-deep"><a href="#2-deep" class="headerlink" title="2./deep/"></a>2.<strong>/deep/</strong></h3><p>如果vue中使用的是style使用css(less, sass, scss)的预处理器，则需要使用<code>deep</code>，因为scss预处理器是无法解析<code>&gt;&gt;&gt;</code>的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.a&#123;</span><br><span class="line">/deep/ .b &#123; </span><br><span class="line"> /* ... */</span><br><span class="line">&#125;</span><br><span class="line">&#125; </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><h3 id="3-v-deep"><a href="#3-v-deep" class="headerlink" title="3.::v-deep"></a>3.<strong>::v-deep</strong></h3><p>如果你是使用vue-cli3以上版本的脚手架创建的项目，使用<code>/deep/</code>可能会出现报错信息。如果出现报错或失效等问题，则可以使用<code>::v-deep</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">::v-deep .a&#123;</span><br><span class="line"> /* ... */</span><br><span class="line">&#125; </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：必须是要以双冒号开头的<br>如果你希望 scoped 样式中的选择器能够作用得“更深”，例如影响子组件，你可以使用以上方法来实现！！！</p>]]></content>
+    
+    
+    <summary type="html">vue深度选择器</summary>
+    
+    
+    
+    
+    <category term="vue" scheme="https://shoujun-guo.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue组件的显示与隐藏</title>
