@@ -1,83 +1,62 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: url(https://wimg.588ku.com/gif620/20/02/09/353d6dbf19d54d60fd15b4c1b6ac2610.gif) no-repeat center fixed;
-      background-size: cover;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    .text {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .text p {
-      margin: 5px 0;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    }
-
-    .heart {
-      position: relative;
-      width: 200px;
-      height: 180px;
-    }
-
-    .heart img {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .heart img:nth-child(1) { top: 50px; left: 80px; }
-    .heart img:nth-child(2) { top: 30px; left: 30px; }
-    .heart img:nth-child(3) { top: 30px; left: 130px; }
-    .heart img:nth-child(4) { top: 70px; left: 0; }
-    .heart img:nth-child(5) { top: 70px; left: 160px; }
-    .heart img:nth-child(6) { top: 110px; left: 30px; }
-    .heart img:nth-child(7) { top: 110px; left: 130px; }
-    .heart img:nth-child(8) { top: 150px; left: 80px; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历</title>
+  <link rel="stylesheet" href="\css\styles.css">
 </head>
-
 <body>
+<div class="resume">
+  <header>
+    <h1>张三</h1>
+    <p>前端开发工程师</p>
+  </header>
 
-<div class="text">
-  <p>我的宝贝</p>
-  <p>xf</p>
-  <p style="color: yellow">情人节快乐</p>
-</div>
+  <section class="contact-info">
+    <h2>联系方式</h2>
+    <ul>
+      <li>电话: 123-456-7890</li>
+      <li>邮箱: zhangsan@example.com</li>
+      <li>GitHub: <a href="https://github.com/zhangsan">github.com/zhangsan</a></li>
+      <li>地址: 北京市朝阳区</li>
+    </ul>
+  </section>
 
-<!-- 心形图片排列 -->
-<div class="heart">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_2998613284_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240826153013.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_0939028958_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240826152347.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_5826148814_7.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_2069284576_6.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_0690864063_8.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_2707655218_5.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_1383602980_9.jpg" alt="">
-  <img src="https://bc6.afbza.cn/mqrcode/1109781/1739540400_4653742613_81.jpg" alt="">
+  <section class="education">
+    <h2>教育背景</h2>
+    <ul>
+      <li>
+        <h3>北京大学</h3>
+        <p>计算机科学与技术 | 本科 | 2016 - 2020</p>
+      </li>
+    </ul>
+  </section>
 
+  <section class="experience">
+    <h2>工作经历</h2>
+    <ul>
+      <li>
+        <h3>前端开发工程师 | 腾讯科技</h3>
+        <p>2020年7月 - 至今</p>
+        <ul>
+          <li>负责公司官网的前端开发与维护</li>
+          <li>参与多个大型项目的开发与优化</li>
+          <li>使用React、Vue等框架进行开发</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="skills">
+    <h2>技能</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>React, Vue.js</li>
+      <li>Node.js, Express</li>
+      <li>Git, Webpack</li>
+    </ul>
+  </section>
 </div>
 </body>
-
 </html>
