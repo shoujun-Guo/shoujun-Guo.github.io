@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写博客</title>
+  <!-- 引入 Quill 编辑器的样式 -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-title {
+      text-align: center;
+      font-size: 36px;
+      color: #ffffff;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+
+    .back, .submit-btn {
+      font-size: 18px;
+      padding: 10px 20px;
+      color: #ffffff;
+      background-color: #45a049;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-left: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .back:hover, .submit-btn:hover {
+      background-color: #3e8e41;
+    }
+
+    .write-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section {
+      margin-bottom: 20px;
+    }
+
+    .form-section input, .form-section select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-top: 5px;
+    }
+
+    .form-section textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      height: 100px;
+      resize: none;
+    }
+
+    .editor-container {
+      margin-top: 30px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .submit-btn-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    /* 大的文本框 */
+    .ql-container {
+      height: 500px; /* 更大的编辑器 */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html"><button class="back">返回主页</button></a>
+    <div class="header-title">写博客</div>
+  </div>
+</header>
+
+<main class="write-container">
+  <div class="form-section">
+    <label for="title">博客标题：</label>
+    <input type="text" id="title" placeholder="输入标题" />
+  </div>
+
+  <div class="form-section">
+    <label for="author">作者：</label>
+    <input type="text" id="author" placeholder="输入作者名" />
+  </div>
+
+  <div class="form-section">
+    <label for="category">分类：</label>
+    <select id="category">
+      <option value="技术">技术</option>
+      <option value="生活">生活</option>
+      <option value="旅行">旅行</option>
+      <option value="教育">教育</option>
+    </select>
+  </div>
+
+  <div class="form-section">
+    <label for="summary">博客摘要：</label>
+    <textarea id="summary" placeholder="输入博客摘要"></textarea>
+  </div>
+
+  <div class="editor-container">
+    <label>博客内容：</label>
+    <!-- 用于显示 Quill 编辑器的容器 -->
+    <div id="editor"></div>
+  </div>
+
+  <div class="submit-btn-container">
+    <button class="submit-btn" id="submitBtn">发布博客</button>
+  </div>
+</main>
+
+<!-- 引入 Quill 编辑器的脚本 -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<!-- 使用 Firebase 8.x 版本 -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+<script>
+  // Firebase 配置
+  const firebaseConfig = {
+    apiKey: "AIzaSyAG7_tJYIJ90-k7hGz8NKA0Er4yseq_p_c",
+    authDomain: "study-3818.firebaseapp.com",
+    projectId: "study-3818",
+    storageBucket: "study-3818.firebasestorage.app",
+    messagingSenderId: "863322960289",
+    appId: "1:863322960289:web:713a69deb009eb6ab2dbe0",
+    measurementId: "G-NEHFM8VPBM"
+  };
+
+  // 初始化 Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // 初始化 Quill 编辑器
+  var quill = new Quill('#editor', {
+    theme: 'snow',  // 编辑器主题
+    placeholder: '在这里输入你的博客内容...',
+    modules: {
+      toolbar: [
+        [{ 'header': '1' }, { 'header': '2' }],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        ['bold', 'italic', 'underline'],
+        ['link', 'image'],
+        [{ 'align': [] }],
+        ['blockquote', 'code-block'],
+        ['clean'] // 清除格式
+      ]
+    }
+  });
+
+  // 发布博客
+  document.getElementById('submitBtn').addEventListener('click', async () => {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const category = document.getElementById('category').value;
+    const summary = document.getElementById('summary').value;
+    const content = quill.root.innerHTML;  // 获取富文本格式的内容
+
+    if (title && author && category && summary && content) {
+      const blogData = {
+        title,
+        author,
+        category,
+        summary,
+        content,
+        publishDate: new Date(),
+      };
+
+      // 将博客数据保存到 Firebase
+      await db.collection("blogs").add(blogData);
+      alert('博客发布成功！');
+      window.location.href = 'index.html'; // 跳转回主页
+    } else {
+      alert('请填写所有必要的字段');
+    }
+  });
+</script>
+
+</body>
+</html>

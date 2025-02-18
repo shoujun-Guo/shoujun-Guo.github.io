@@ -15,41 +15,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/*header {*/
-/*  text-align: center;*/
-/*  margin-bottom: 20px;*/
-/*  background: linear-gradient(135deg, #d55e38, #b98d85, #d7c5c1); !* 渐变色 *!*/
-/*  -webkit-background-size: cover;*/
-/*  -moz-background-size: cover;*/
-/*  -o-background-size: cover;*/
-/*  background-size: cover;*/
-/*  padding: 20px;*/
-/*  border-radius: 10px;*/
-/*  color: #fff;*/
-/*}*/
+
 header {
   text-align: center;
   margin-bottom: 20px;
-  background: url(/img/bgc.jpg);
   background-size: cover;
-  background-position: center;
+  background: url(/img/bgc.jpg) center;
   position: relative;
-  padding: 20px;
+  /*padding: 20px 0px;*/
   border-radius: 10px;
   color: #fff;
 }
-
-/*header::after {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  background: rgba(0, 0, 0, 0.3); !* 半透明遮罩 *!*/
-/*  border-radius: 10px;*/
-/*}*/
-
 
 
 header h1 {
@@ -128,13 +104,43 @@ ul li {
   flex-wrap: wrap;
 }
 
+
+.skills ul li:nth-child(1) {
+  background-color: #5d92fa; /* 蓝色 */
+}
+
+.skills ul li:nth-child(2) {
+  background-color: #f4a261; /* 橙色 */
+}
+
+.skills ul li:nth-child(3) {
+  background-color: #2ecc71; /* 绿色 */
+}
+
+.skills ul li:nth-child(4) {
+  background-color: #e74c3c; /* 红色 */
+}
+
+.skills ul li:nth-child(5) {
+  background-color: #f39c12; /* 黄色 */
+}
+
+.skills ul li:nth-child(6) {
+  background-color: #9b59b6; /* 紫色 */
+}
+
+.skills ul li:nth-child(7) {
+  background-color: #cce813; /* 紫色 */
+}
+
 .skills ul li {
-  background-color: #e0e0e0;
   padding: 5px 10px;
   margin: 5px;
   border-radius: 5px;
   font-size: 0.9em;
+  color: white;
 }
+
 
 /* 新增样式 */
 .profile-photo {
@@ -258,18 +264,6 @@ ul li {
   margin: 0 15px;
 }
 
-.nav-button {
-  text-decoration: none;
-  color: #fff;
-  background-color: #4CAF50;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.nav-button:hover {
-  background-color: #45a049;
-}
 /* 重置样式 */
 * {
   margin: 0;
@@ -299,7 +293,7 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
-  margin: 0 15px;
+
 }
 
 .nav-button:hover {
@@ -411,9 +405,6 @@ body {
 
 /* 顶部导航栏样式 */
 .navbar {
-  background-color: #fff;
-  border: 2px solid #4CAF50;  /* 添加绿色边框 */
-  border-radius: 10px;  /* 圆角边框 */
   padding: 20px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
   margin: 20px auto;  /* 保证导航栏居中，外边距相等 */
@@ -473,3 +464,8 @@ button {
   outline: none;     /* 去掉按钮的轮廓 */
 }
 
+.nav-button:hover {
+  background-color: #4CAF50;  /* 悬停时背景色改为绿色 */
+  color: #fff;                /* 悬停时字体变为白色 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* 添加按钮阴影 */
+}

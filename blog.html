@@ -23,6 +23,70 @@
         <h2>前端开发中的小技巧</h2>
         <p>在前端开发的过程中，我积累了一些实用的小技巧。比如，如何高效地调试JavaScript代码，如何快速创建响应式布局等。...</p>
     </div>
+    <div class="container">
+        <div id="blogsList"></div>
+    </div>
 </main>
+
+
+<!-- 使用 Firebase 8.x 版本 -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+<script>
+    // Firebase 配置
+    const firebaseConfig = {
+        apiKey: "AIzaSyAG7_tJYIJ90-k7hGz8NKA0Er4yseq_p_c",
+        authDomain: "study-3818.firebaseapp.com",
+        projectId: "study-3818",
+        storageBucket: "study-3818.firebasestorage.app",
+        messagingSenderId: "863322960289",
+        appId: "1:863322960289:web:713a69deb009eb6ab2dbe0",
+        measurementId: "G-NEHFM8VPBM"
+    };
+
+    // 初始化 Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // 获取博客列表
+    async function getBlogs() {
+        const blogsCol = db.collection("blogs");
+        const snapshot = await blogsCol.get();
+        const blogsList = snapshot.docs.map(doc => {
+            return {
+                id: doc.id,
+                ...doc.data()
+            };
+        });
+
+        displayBlogs(blogsList);
+    }
+
+    // 展示博客列表
+    function displayBlogs(blogsList) {
+        const blogsListElement = document.getElementById('blogsList');
+        blogsListElement.innerHTML = ''; // 清空当前内容
+
+        blogsList.forEach(blog => {
+            const blogItem = document.createElement('div');
+            blogItem.className = 'blog-item';
+            blogItem.innerHTML = `
+        <div class="title">${blog.title}</div>
+        <div class="author">作者: ${blog.author} | 发布时间: ${new Date(blog.publishDate).toLocaleDateString()}</div>
+      `;
+
+            // 点击事件，跳转到博客详情页面
+            blogItem.onclick = function() {
+                window.location.href = `blog_detail.html?id=${blog.id}`;
+            };
+
+            blogsListElement.appendChild(blogItem);
+        });
+    }
+
+    // 获取博客列表并展示
+    getBlogs();
+</script>
 </body>
 </html>

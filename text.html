@@ -3,57 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历</title>
+    <title>博客文章页面</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script>
-        function checkPassword() {
-            // 获取用户输入的密码
-            var userPassword = prompt("请输入访问密码：", "");
-
-            // 密码正确时跳转到日记页面
-            if (userPassword === "3818") {
-                window.location.href = "diary.html";  // 跳转到日记页面
-            } else {
-                alert("密码错误，请重新输入。");
-            }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
-    </script>
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .blog-header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .blog-header p {
+            font-size: 16px;
+            color: #888;
+        }
+
+        .blog-content {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .blog-meta span {
+            margin-right: 15px;
+        }
+
+        .comment-section {
+            margin-top: 40px;
+        }
+
+        .comment-header {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .comment p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="resume">
-    <header>
-        <img src="/img/xg.jpg" alt="头像" class="profile-photo">
-        <h1>郭守军</h1>
-        <p>前后端开发工程师</p>
-    </header>
+<div class="container">
+    <div class="blog-header">
+        <h1>如何优化前端性能</h1>
+        <p>前端开发 | 2025年2月18日</p>
+    </div>
 
-    <section class="contact-info">
-        <h2>联系方式</h2>
-        <h2>跳转页面</h2>
-        <button onclick="checkPassword()">访问日记页面</button>
-        <!-- 可以继续添加其他跳转按钮 -->
-        <div class="contact-grid">
-            <div class="contact-item">
-                <strong>电话:</strong> 18197243579
-            </div>
-            <div class="contact-item">
-                <strong>邮箱:</strong> 1417839614@qq.com
-            </div>
-            <div class="contact-item">
-                <strong>GitHub:</strong> <a href="https://github.com/shoujun-Guo">https://github.com/shoujun-Guo</a>
-            </div>
-            <div class="contact-item">
-                <strong>籍贯:</strong> 青海省海东市互助县
-            </div>
-            <div class="contact-item">
-                <strong>微信ID:</strong> <span class="wechat-id-tag">shoujunGuo</span>
-                <img src="/img/wx.jpg" alt="微信二维码" class="wechat-qrcode">
-            </div>
+    <div class="blog-meta">
+        <span>作者: 郭守军</span>
+        <span>阅读量: 1023</span>
+    </div>
+
+    <div class="blog-content">
+        <p>前端性能优化是每个前端开发者必须要掌握的技能，它不仅关系到用户体验，也对搜索引擎优化（SEO）起到了至关重要的作用。</p>
+
+        <p>在这篇文章中，我们将从以下几个方面探讨如何提高前端性能：</p>
+
+        <h3>1. 代码压缩与合并</h3>
+        <p>通过压缩和合并 JavaScript 和 CSS 文件，可以有效减小文件体积，减少页面加载时间。使用 Webpack 等工具进行代码打包和压缩。</p>
+
+        <h3>2. 图片优化</h3>
+        <p>图片是网页中体积最大的一部分。使用合适的图片格式（如 WebP）、按需加载（Lazy Loading）和图片压缩技术，能够显著提高网页加载速度。</p>
+
+        <h3>3. 资源缓存</h3>
+        <p>通过合理配置浏览器缓存和 CDN，能够使用户重复访问时加载更快，减少网络请求。</p>
+
+        <h3>4. 使用异步加载</h3>
+        <p>将一些非关键资源（如某些 JavaScript 文件）设置为异步加载，可以提高页面的首次加载速度。</p>
+
+        <p>这些优化措施可以极大地改善网页加载速度和用户体验，是前端开发中不可或缺的部分。</p>
+    </div>
+
+    <div class="comment-section">
+        <div class="comment-header">
+            <h2>评论区</h2>
         </div>
-    </section>
 
+        <div class="comment">
+            <p><strong>李四:</strong> 这篇文章讲解得非常详细，特别是图片优化的部分，受益匪浅！</p>
+        </div>
 
+        <div class="comment">
+            <p><strong>张三:</strong> 我也遇到过类似的问题，使用 Lazy Loading 后效果明显提升，谢谢作者分享！</p>
+        </div>
+
+        <a href="index.html" class="back-button">返回主页</a>
+    </div>
 </div>
 
 </body>

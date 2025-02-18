@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .edit-btn, .delete-btn {
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            background-color: #4CAF50;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+        }
+
+        .edit-btn:hover, .delete-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>博客管理</h1>
+</header>
+
+<div class="container">
+    <h2>所有博客</h2>
+    <table id="blogsTable">
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>作者</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 博客数据将会动态生成 -->
+        </tbody>
+    </table>
+</div>
+
+<!-- 使用 Firebase 8.x 版本 -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+<script>
+    // Firebase 配置
+    const firebaseConfig = {
+        apiKey: "AIzaSyAG7_tJYIJ90-k7hGz8NKA0Er4yseq_p_c",
+        authDomain: "study-3818.firebaseapp.com",
+        projectId: "study-3818",
+        storageBucket: "study-3818.firebasestorage.app",
+        messagingSenderId: "863322960289",
+        appId: "1:863322960289:web:713a69deb009eb6ab2dbe0",
+        measurementId: "G-NEHFM8VPBM"
+    };
+
+    // 初始化 Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // 获取博客列表并显示
+    async function getBlogs() {
+        const blogsCol = db.collection("blogs");
+        const snapshot = await blogsCol.get();
+        const blogsList = snapshot.docs.map(doc => {
+            return {
+                id: doc.id,
+                ...doc.data()
+            };
+        });
+
+        displayBlogs(blogsList);
+    }
+
+    // 展示博客列表
+    function displayBlogs(blogsList) {
+        const blogsTable = document.getElementById('blogsTable').getElementsByTagName('tbody')[0];
+        blogsTable.innerHTML = '';
+
+        blogsList.forEach(blog => {
+            const row = blogsTable.insertRow();
+            row.innerHTML = `
+                <td>${blog.title}</td>
+                <td>${blog.author}</td>
+                <td>
+                    <button class="edit-btn" onclick="editBlog('${blog.id}')">编辑</button>
+                    <button class="delete-btn" onclick="deleteBlog('${blog.id}')">删除</button>
+                </td>
+            `;
+        });
+    }
+
+    // 编辑博客
+    function editBlog(id) {
+        // 跳转到博客编辑页面
+        window.location.href = `blog_edit.html?id=${id}`;
+    }
+
+    // 删除博客
+    async function deleteBlog(id) {
+        const confirmation = confirm("确认删除此博客？");
+        if (confirmation) {
+            await db.collection("blogs").doc(id).delete();
+            alert("博客已删除");
+            getBlogs();
+        }
+    }
+
+    // 加载博客数据
+    getBlogs();
+</script>
+</body>
+</html>

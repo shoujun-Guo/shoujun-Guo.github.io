@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f7fa;  /* 浅灰色背景 */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* 左侧内容区 */
+        .content-container {
+            width: 70%; /* 左侧占 70% */
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center; /* 标题居中 */
+        }
+
+        .content {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        .stats span {
+            margin-right: 20px;
+        }
+
+        /* 右侧排行榜 */
+        .sidebar {
+            width: 25%; /* 右侧占 25% */
+            background-color: #ffffff;
+            margin-left: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .sidebar ul li:hover {
+            color: #ff4e50;
+            cursor: pointer;
+        }
+
+        .sidebar ul li span {
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .content-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 左侧博客内容区 -->
+    <div class="content-container">
+        <h1 id="blogTitle"></h1>
+        <div id="blogContent" class="content"></div>
+        <div id="blogAuthor" class="author"></div>
+        <div id="blogStats" class="stats">
+            <span id="readCount">阅读量: 0</span>
+            <span id="publishDate">发布时间: </span>
+        </div>
+    </div>
+
+    <!-- 右侧阅读排行榜 -->
+    <div class="sidebar">
+        <h3>阅读排行榜</h3>
+        <ul id="readingRankList">
+            <!-- 这里会动态生成排行榜 -->
+        </ul>
+    </div>
+</div>
+
+<!-- 使用 Firebase 8.x 版本 -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+<script>
+    // Firebase 配置
+    const firebaseConfig = {
+        apiKey: "AIzaSyAG7_tJYIJ90-k7hGz8NKA0Er4yseq_p_c",
+        authDomain: "study-3818.firebaseapp.com",
+        projectId: "study-3818",
+        storageBucket: "study-3818.firebasestorage.app",
+        messagingSenderId: "863322960289",
+        appId: "1:863322960289:web:713a69deb009eb6ab2dbe0",
+        measurementId: "G-NEHFM8VPBM"
+    };
+
+    // 初始化 Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // 获取博客详情
+    async function getBlogDetail() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const blogId = urlParams.get('id');
+
+        if (blogId) {
+            const blogDoc = await db.collection('blogs').doc(blogId).get();
+            const blog = blogDoc.data();
+
+            document.getElementById('blogTitle').textContent = blog.title;
+            document.getElementById('blogContent').innerHTML = blog.content; // 如果是富文本的话可以使用 innerHTML
+            document.getElementById('blogAuthor').textContent = `作者: ${blog.author}`;
+            document.getElementById('publishDate').textContent = `发布时间: ${new Date(blog.publishDate).toLocaleDateString()}`;
+            document.getElementById('readCount').textContent = `阅读量: ${blog.readCount || 0}`;
+        } else {
+            alert('博客未找到');
+        }
+    }
+
+    // 获取并显示博客详情
+    getBlogDetail();
+
+    // 获取阅读排行榜
+    async function getReadingRank() {
+        const blogsCol = await db.collection('blogs').orderBy('readCount', 'desc').limit(5).get();
+        const rankList = blogsCol.docs.map(doc => doc.data());
+
+        const rankListElement = document.getElementById('readingRankList');
+        rankList.forEach((blog, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${index + 1}</span>${blog.title} - 阅读量: ${blog.readCount || 0}`;
+            li.onclick = function() {
+                window.location.href = `blog_detail.html?id=${blog.id}`;
+            };
+            rankListElement.appendChild(li);
+        });
+    }
+
+    // 获取并显示阅读排行榜
+    getReadingRank();
+</script>
+
+</body>
+</html>
