@@ -22,7 +22,7 @@ header {
   background-size: cover;
   background: url(/img/bgc.jpg) center;
   position: relative;
-  /*padding: 20px 0px;*/
+  padding: 20px 0px;
   border-radius: 10px;
   color: #fff;
 }

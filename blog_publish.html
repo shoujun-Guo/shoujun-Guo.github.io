@@ -15,12 +15,11 @@
     }
 
     header {
-      background-color: #333;
+      background-color: #007bff;
       padding: 15px 0;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .navbar {
@@ -33,7 +32,7 @@
 
     .header-title {
       text-align: center;
-      font-size: 36px;
+      font-size: 24px;
       color: #ffffff;
       font-weight: bold;
       flex-grow: 1;
@@ -41,7 +40,7 @@
 
     .back, .submit-btn {
       font-size: 18px;
-      padding: 10px 20px;
+      padding: 10px 10px;
       color: #ffffff;
       background-color: #45a049;
       border-radius: 12px;
@@ -85,7 +84,15 @@
       height: 100px;
       resize: none;
     }
-
+    .back-btn {
+      background-color: #ffffff;
+      color: #007bff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
     .editor-container {
       margin-top: 30px;
       border: 1px solid #ddd;
@@ -108,7 +115,7 @@
 
 <header>
   <div class="navbar">
-    <a href="index.html"><button class="back">返回主页</button></a>
+    <a href="blog_list.html" style="text-decoration: none;" class="back-btn">返回</a>
     <div class="header-title">写博客</div>
   </div>
 </header>
@@ -206,12 +213,13 @@
         summary,
         content,
         publishDate: new Date(),
+        viewCount: 0  // 初始化阅读量
       };
 
       // 将博客数据保存到 Firebase
       await db.collection("blogs").add(blogData);
       alert('博客发布成功！');
-      window.location.href = 'index.html'; // 跳转回主页
+      window.location.href = 'blog_list.html'; // 跳转回主页
     } else {
       alert('请填写所有必要的字段');
     }

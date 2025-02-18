@@ -157,7 +157,7 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // 获取博客详情
+    // 获取博客详情并增加阅读量
     async function getBlogDetail() {
         const urlParams = new URLSearchParams(window.location.search);
         const blogId = urlParams.get('id');
@@ -166,11 +166,15 @@
             const blogDoc = await db.collection('blogs').doc(blogId).get();
             const blog = blogDoc.data();
 
+            // 更新阅读量
+            const updatedReadCount = (blog.readCount || 0) + 1;
+            await db.collection('blogs').doc(blogId).update({ readCount: updatedReadCount });
+
             document.getElementById('blogTitle').textContent = blog.title;
             document.getElementById('blogContent').innerHTML = blog.content; // 如果是富文本的话可以使用 innerHTML
             document.getElementById('blogAuthor').textContent = `作者: ${blog.author}`;
             document.getElementById('publishDate').textContent = `发布时间: ${new Date(blog.publishDate).toLocaleDateString()}`;
-            document.getElementById('readCount').textContent = `阅读量: ${blog.readCount || 0}`;
+            document.getElementById('readCount').textContent = `阅读量: ${updatedReadCount}`;
         } else {
             alert('博客未找到');
         }

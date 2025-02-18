@@ -5,8 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图库</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .gallery-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 80%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 放大图片的覆盖效果 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+    </style>
 </head>
 <body>
+
 <header>
     <nav class="navbar">
         <a href="index.html" class="nav-button">返回主页</a>
@@ -17,19 +89,67 @@
     <h1>我的图库</h1>
     <div class="gallery-grid">
         <div class="gallery-item">
-            <img src="/img/photo1.jpg" alt="图片1">
+            <img src="/img/bgc.jpg" alt="图片1" data-large="/img/bgc.jpg">
             <p>图片标题1</p>
         </div>
         <div class="gallery-item">
-            <img src="/img/photo2.jpg" alt="图片2">
+            <img src="/img/car.jpg" alt="图片2" data-large="/img/car.jpg">
             <p>图片标题2</p>
         </div>
         <div class="gallery-item">
-            <img src="/img/photo3.jpg" alt="图片3">
+            <img src="/img/psc.jpg" alt="图片3" data-large="/img/psc.jpg">
+            <p>图片标题3</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/img/bgc.jpg" alt="图片1" data-large="/img/bgc.jpg">
+            <p>图片标题1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/img/xg.jpg" alt="图片2" data-large="/img/xg.jpg">
+            <p>图片标题2</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/img/psc.jpg" alt="图片3" data-large="/img/psc.jpg">
             <p>图片标题3</p>
         </div>
         <!-- 可以继续添加更多图片 -->
     </div>
 </main>
+
+<!-- 放大图片的弹出层 -->
+<div class="overlay" id="overlay">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <img id="overlay-img" src="" alt="放大图片">
+</div>
+
+<script>
+    // 获取所有图片元素
+    const images = document.querySelectorAll('.gallery-item img');
+    const overlay = document.getElementById('overlay');
+    const overlayImg = document.getElementById('overlay-img');
+    const closeBtn = document.getElementById('close-btn');
+
+    // 点击图片时显示放大后的图片
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            const largeImageUrl = image.getAttribute('data-large');
+            overlayImg.src = largeImageUrl;
+            overlay.style.display = 'flex'; // 显示放大图片的层
+        });
+    });
+
+    // 关闭放大图片
+    closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none'; // 隐藏放大图片的层
+    });
+
+    // 点击弹出层以外的区域也可以关闭
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+        }
+    });
+</script>
+
 </body>
 </html>

@@ -13,8 +13,9 @@
 
         .navbar {
             background-color: #007bff;
-            padding: 10px;
+            padding: 20px;
             color: white;
+            font-size: 21px;
         }
 
         .navbar a {
@@ -127,15 +128,14 @@
             <div id="blogsList"></div>
         </div>
 
-        <!-- 排行榜 -->
+        <!-- 阅读量排行榜 -->
         <div class="col-md-4">
             <div class="sidebar">
-                <h5>博客排行榜</h5>
+                <h5>阅读量排行榜</h5>
                 <ul id="rankingList"></ul>
             </div>
         </div>
     </div>
-
 </div>
 
 <!-- 使用 Firebase 8.x 版本 -->
@@ -184,10 +184,17 @@
                 <div class="title">${blog.title}</div>
                 <div class="author">作者: ${blog.author} | 发布时间: ${new Date(blog.publishDate).toLocaleDateString()}</div>
                 <div class="summary">${blog.content.substring(0, 150)}...</div>
+                <div class="readCount">阅读量: <span>${blog.readCount || 0}</span></div>
             `;
 
-            // 点击事件，跳转到博客详情页面
-            blogItem.onclick = function() {
+            // 点击事件，跳转到博客详情页面并增加阅读量
+            blogItem.onclick = async function() {
+                // 增加阅读量
+                await db.collection("blogs").doc(blog.id).update({
+                    readCount: (blog.readCount || 0) + 1
+                });
+
+                // 跳转到博客详情页面
                 window.location.href = `blog_detail.html?id=${blog.id}`;
             };
 
@@ -195,14 +202,15 @@
         });
     }
 
-    // 获取并显示排行榜
+    // 获取并显示阅读量排行榜
     async function getRanking() {
         const blogsCol = db.collection("blogs");
-        const snapshot = await blogsCol.orderBy("views", "desc").limit(5).get();
+        const snapshot = await blogsCol.orderBy("readCount", "desc").limit(5).get();
         const rankingList = snapshot.docs.map(doc => {
             return {
                 title: doc.data().title,
-                views: doc.data().views || 0
+                readCount: doc.data().readCount || 0,
+                id: doc.id
             };
         });
 
@@ -216,7 +224,7 @@
 
         rankingList.forEach((rank, index) => {
             const rankItem = document.createElement('li');
-            rankItem.innerHTML = `${index + 1}. <a href="#">${rank.title}</a> (${rank.views} 阅读量)`;
+            rankItem.innerHTML = `${index + 1}. <a href="blog_detail.html?id=${rank.id}">${rank.title}</a> (${rank.readCount} 阅读量)`;
             rankingListElement.appendChild(rankItem);
         });
     }
@@ -224,6 +232,12 @@
     // 获取博客和排行榜数据
     getBlogs();
     getRanking();
+
+    // 实时监听博客阅读量变化，更新排行榜
+    db.collection("blogs").onSnapshot(() => {
+        getRanking(); // 当博客数据发生变化时，重新获取并显示排行榜
+    });
+
 </script>
 
 </body>

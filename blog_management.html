@@ -13,24 +13,45 @@
         }
 
         header {
-            background-color: #333;
-            padding: 15px;
+            height: 60px;
+            background-color: #007bff;
+            padding: 10px 20px;
             color: white;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* 默认中心对齐 */
+        }
+
+        .header-left {
+            position: absolute;
+            left: 20px;  /* 左侧对齐 */
+        }
+
+        .back-btn {
+            background-color: #ffffff;
+            color: #007bff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        .header-title {
+            font-size: 21px;
         }
 
         .container {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
         }
 
         table {
@@ -72,7 +93,12 @@
 <body>
 
 <header>
-    <h1>博客管理</h1>
+    <div class="header-left">
+        <a href="blog_list.html" class="back-btn">返回</a>
+    </div>
+    <div class="header-title">
+        <p>博客管理</p>
+    </div>
 </header>
 
 <div class="container">
