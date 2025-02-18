@@ -15,17 +15,42 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/*header {*/
+/*  text-align: center;*/
+/*  margin-bottom: 20px;*/
+/*  background: linear-gradient(135deg, #d55e38, #b98d85, #d7c5c1); !* 渐变色 *!*/
+/*  -webkit-background-size: cover;*/
+/*  -moz-background-size: cover;*/
+/*  -o-background-size: cover;*/
+/*  background-size: cover;*/
+/*  padding: 20px;*/
+/*  border-radius: 10px;*/
+/*  color: #fff;*/
+/*}*/
 header {
   text-align: center;
   margin-bottom: 20px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(/img/bgc.jpg);
   background-size: cover;
+  background-position: center;
+  position: relative;
   padding: 20px;
   border-radius: 10px;
   color: #fff;
 }
+
+/*header::after {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  background: rgba(0, 0, 0, 0.3); !* 半透明遮罩 *!*/
+/*  border-radius: 10px;*/
+/*}*/
+
+
 
 header h1 {
   margin: 0;
