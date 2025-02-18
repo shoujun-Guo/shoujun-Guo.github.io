@@ -184,6 +184,12 @@ ul li {
 }
 
 /* 响应式样式 */
+@media (max-width: 1024px) {
+  .award-item {
+    width: 48%; /* 平板端两列布局 */
+  }
+}
+
 @media (max-width: 768px) {
   .award-item {
     width: 48%; /* 手机端两列布局 */
@@ -193,5 +199,11 @@ ul li {
 @media (max-width: 480px) {
   .award-item {
     width: 100%; /* 手机端单列布局 */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* 手机端单列布局 */
   }
 }
