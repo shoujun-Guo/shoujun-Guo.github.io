@@ -4,24 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>个人简历</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <div class="resume">
   <header>
-    <img src="https://pic1.imgdb.cn/item/67b41712d0e0a243d40069df.jpg" alt="头像" style="width: 160px; height: 160px;border-radius: 50%">
+    <img src="https://pic1.imgdb.cn/item/67b41712d0e0a243d40069df.jpg" alt="头像" class="profile-photo">
     <h1>郭守军</h1>
     <p>前后端开发工程师</p>
   </header>
 
+  <!-- 修改后的联系方式部分 -->
   <section class="contact-info">
     <h2>联系方式</h2>
-    <ul>
-      <li>电话: 18197243579</li>
-      <li>邮箱: 1417839614@qq.com</li>
-      <li>GitHub: <a href="https://github.com/shoujun-Guo">https://github.com/shoujun-Guo</a></li>
-<!--      <li>地址: 陕西省西安市长安区</li>-->
-    </ul>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <strong>电话:</strong> 18197243579
+      </div>
+      <div class="contact-item">
+        <strong>邮箱:</strong> 1417839614@qq.com
+      </div>
+      <div class="contact-item">
+        <strong>GitHub:</strong> <a href="https://github.com/shoujun-Guo">https://github.com/shoujun-Guo</a>
+      </div>
+      <div class="contact-item">
+        <strong>籍贯:</strong> 青海省海东市
+      </div>
+      <div class="contact-item">
+        <strong>微信ID:</strong> shoujunGuo
+        <img src="https://pic1.imgdb.cn/item/67b41c62d0e0a243d4006b0f.jpg" alt="微信二维码" class="wechat-qrcode">
+      </div>
+    </div>
   </section>
 
   <section class="education">
@@ -29,7 +42,7 @@
     <ul>
       <li>
         <h3>西安电子科技大学</h3>
-        <p>电子信息科学于技术 | 本科 | </p>
+        <p>电子信息科学与技术 | 本科</p>
       </li>
     </ul>
   </section>
@@ -39,7 +52,6 @@
     <ul>
       <li>
         <h3>前端开发工程师 | 腾讯科技</h3>
-<!--        <p>2020年7月 - 至今</p>-->
         <ul>
           <li>负责公司官网的前端开发与维护</li>
           <li>参与多个大型项目的开发与优化</li>
@@ -47,6 +59,23 @@
         </ul>
       </li>
     </ul>
+  </section>
+
+  <section class="awards">
+    <h2>比赛证书展示</h2>
+    <div class="awards-gallery">
+      <div class="award-item">
+        <h3>编程大赛</h3>
+        <p>等级：一等奖</p>
+        <img src="http://phototj.photo.store.qq.com/psc?/V525sLXX3YtOwL2IC1194DgWIw4O5Otc/ruAMsa53pVQWN7FLK88i5lXLsQ.cqPeXtefJZ69kxIUg1erTAMXuqyVrrYFC6jt*2V9584NWb91kaqdCj.2tvIaZYaR2r0Td4lwEDEPGbqk!/b&bo=OAT*AgAAAAABB.E!&rf=viewer_4" alt="证书1" class="award-img">
+      </div>
+      <div class="award-item">
+        <h3>创新挑战赛</h3>
+        <p>等级：二等奖</p>
+        <img src="https://via.placeholder.com/150" alt="证书2" class="award-img">
+      </div>
+      <!-- 可以继续添加其他比赛证书 -->
+    </div>
   </section>
 
   <section class="skills">
