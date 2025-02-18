@@ -466,3 +466,10 @@ body {
     padding: 12px 25px;  /* 标准按钮内边距 */
   }
 }
+
+button {
+  box-shadow: none;  /* 去除按钮周围的阴影 */
+  border: none;      /* 如果有边框也去掉 */
+  outline: none;     /* 去掉按钮的轮廓 */
+}
+
