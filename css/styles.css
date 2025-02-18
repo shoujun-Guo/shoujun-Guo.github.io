@@ -242,3 +242,227 @@ ul li {
   /*margin-left: 10px;*/
   font-size: 70%;
 }
+
+.navbar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.nav-button:hover {
+  background-color: #45a049;
+}
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面基础样式 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 顶部导航 */
+.navbar {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px 0;
+  text-align: center;
+}
+
+.nav-button {
+  color: #fff;
+  text-decoration: none;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 15px;
+}
+
+.nav-button:hover {
+  background-color: #45a049;
+}
+
+/* 博客、图库、日记容器 */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 博客页面样式 */
+.blog-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.blog-post {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.blog-post p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* 图库页面样式 */
+.gallery-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.gallery-item p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* 日记页面样式 */
+.diary-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.diary-entry {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.diary-entry h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.diary-entry p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/*nav*/
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 顶部导航栏样式 */
+.navbar {
+  background-color: #fff;
+  border: 2px solid #4CAF50;  /* 添加绿色边框 */
+  border-radius: 10px;  /* 圆角边框 */
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
+  margin: 20px auto;  /* 保证导航栏居中，外边距相等 */
+  width: 100%;  /* 控制导航栏宽度，80% 宽度 */
+  max-width: 1200px;  /* 最大宽度 */
+}
+
+/* 小屏幕：手机（最大宽度 600px） */
+@media (max-width: 600px) {
+  .navbar {
+    width: 95%;  /* 较小的宽度适应小屏幕 */
+    padding: 8px 0;  /* 减少上下内边距 */
+  }
+
+  .nav-list {
+    flex-direction: column;  /* 导航链接垂直排列 */
+  }
+
+  .nav-list li {
+    margin: 10px 0;  /* 调整列表项的间距 */
+  }
+
+  .nav-button {
+    font-size: 16px;  /* 调整字体大小 */
+    padding: 10px 20px;  /* 调整按钮内边距 */
+  }
+}
+
+/* 中屏幕：平板（最大宽度 1024px） */
+@media (max-width: 1024px) {
+  .navbar {
+    width: 90%;  /* 稍微减小宽度 */
+    padding: 10px 0;
+  }
+
+  .nav-button {
+    font-size: 17px;  /* 调整字体大小 */
+    padding: 10px 22px;  /* 调整按钮内边距 */
+  }
+}
+
+/* 大屏幕：桌面（默认样式） */
+@media (min-width: 1025px) {
+  .navbar {
+    width: 100%;  /* 控制导航栏宽度 */
+  }
+
+  .nav-button {
+    font-size: 18px;  /* 正常大小字体 */
+    padding: 12px 25px;  /* 标准按钮内边距 */
+  }
+}
