@@ -184,6 +184,12 @@ ul li {
 }
 
 /* 响应式样式 */
+@media (max-width: 1024px) {
+  .award-item {
+    width: 48%; /* 平板端两列布局 */
+  }
+}
+
 @media (max-width: 768px) {
   .award-item {
     width: 48%; /* 手机端两列布局 */
@@ -195,3 +201,21 @@ ul li {
     width: 100%; /* 手机端单列布局 */
   }
 }
+
+@media (max-width: 480px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* 手机端单列布局 */
+  }
+}
+
+.wechat-id-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background: linear-gradient(45deg, #ff7f50, #ff6347, #ff4500); /* 渐变背景色 */
+  color: #fff;
+  border-radius: 20px;
+  font-weight: bold;
+  /*margin-left: 10px;*/
+  font-size: 70%;
+}
+
