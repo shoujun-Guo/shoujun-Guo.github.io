@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放列表</title>
+    <link rel="stylesheet" href="/css/music_styles.css">
+</head>
+<body>
+<div class="player-container">
+    <div class="player-header">
+        <h1>音乐播放器</h1>
+    </div>
+
+    <div class="player">
+        <div class="current-song">
+<!--            <img id="current-song-img" src="" alt="" class="song-cover">-->
+            <div class="song-info">
+                <p id="song-title">请选择一首歌</p>
+                <p id="song-artist">--</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="prev-btn" class="control-btn">⏪</button>
+            <button id="play-btn" class="control-btn">▶️</button>
+            <button id="next-btn" class="control-btn">⏩</button>
+        </div>
+
+        <div class="playlist">
+            <ul id="playlist">
+                <!-- 音乐列表项将动态加载 -->
+            </ul>
+        </div>
+
+        <audio id="audio-player" preload="auto"></audio>
+    </div>
+</div>
+
+<script src="/js/music_app.js"></script>
+</body>
+</html>

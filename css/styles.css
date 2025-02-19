@@ -405,7 +405,7 @@ body {
 
 /* 顶部导航栏样式 */
 .navbar {
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
   margin: 20px auto;  /* 保证导航栏居中，外边距相等 */
   width: 100%;  /* 控制导航栏宽度，80% 宽度 */
