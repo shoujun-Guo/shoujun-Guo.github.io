@@ -6,17 +6,39 @@
   <title>个人简历</title>
   <link rel="stylesheet" href="css/styles.css">
   <script>
-      function checkPassword() {
+    function checkPassword() {
       // 获取用户输入的密码
-        var userPassword = prompt("请输入访问密码：", "");
+      var userPassword = prompt("请输入访问密码：", "");
 
-        // 密码正确时跳转到日记页面
-        if (userPassword === "3818") {
-          window.location.href = "diary.html";  // 跳转到日记页面
-        } else {
-          alert("密码错误，请重新输入。");
-        }
+      // 密码正确时跳转到日记页面
+      if (userPassword === "3818") {
+        window.location.href = "diary.html";  // 跳转到日记页面
+      } else {
+        alert("密码错误，请重新输入。");
       }
+    }
+    function copyPhoneNumber() {
+      var phoneNumber = document.getElementById("phone-number").innerText;
+      // 检查 Clipboard API 是否可用
+      if (navigator.clipboard) {
+        // 使用 Clipboard API 复制电话号码
+        navigator.clipboard.writeText(phoneNumber).then(function() {
+          alert("电话号码已复制！");
+        }).catch(function(error) {
+          alert("复制失败，请重试！错误: " + error);
+        });
+      } else {
+        // 如果 Clipboard API 不可用，使用旧的方法
+        var textArea = document.createElement("textarea");
+        textArea.value = phoneNumber;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        alert("电话号码已复制！");
+      }
+    }
+
   </script>
 </head>
 
@@ -25,15 +47,15 @@
   <header>
     <img src="/img/xg.jpg" alt="头像" class="profile-photo">
     <h1>郭守军</h1>
-    <p>天行健，君子以自强不息！</p>
+    <p style="color: #ffffff;">天行健，君子以自强不息！</p>
   </header>
-
 
   <section class="contact-info">
     <h2>联系方式</h2>
     <div class="contact-grid">
       <div class="contact-item">
         <strong>电话:</strong> 18197243579
+        <button onclick="copyPhoneNumber()" class="copy-button">复制</button>
       </div>
       <div class="contact-item">
         <strong>邮箱:</strong> 1417839614@qq.com
@@ -42,17 +64,18 @@
         <strong>GitHub:</strong> <a href="https://github.com/shoujun-Guo">https://github.com/shoujun-Guo</a>
       </div>
       <div class="contact-item">
-        <strong>籍贯:</strong> 青海省海东市互助县
+        <strong>Gitee:</strong> <a href="https://github.com/shoujun-Guo">https://github.com/shoujun-Guo</a>
       </div>
       <div class="contact-item">
         <strong>微信ID:</strong> <span class="wechat-id-tag">shoujunGuo</span>
         <img src="/img/wx.jpg" alt="微信二维码" class="wechat-qrcode">
       </div>
-
+      <div class="contact-item">
+        <strong>QQ:</strong> <span class="wechat-id-tag">1417839614</span>
+        <img src="/img/qq.png" alt="微信二维码" class="wechat-qrcode">
+      </div>
     </div>
   </section>
-
-
 
   <section class="education">
     <h2>教育背景</h2>
@@ -64,22 +87,8 @@
     </ul>
   </section>
 
-  <section class="experience">
-    <h2>项目经历</h2>
-    <ul>
-      <li>
-        <h3>前端开发工程师 | 腾讯科技</h3>
-        <ul>
-          <li>负责公司官网的前端开发与维护</li>
-          <li>参与多个大型项目的开发与优化</li>
-          <li>使用React、Vue等框架进行开发</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-
   <section class="awards">
-    <h2>比赛证书展示</h2>
+    <h2>证书展示</h2>
     <div class="awards-gallery">
       <div class="award-item">
         <h3>编程大赛</h3>
@@ -111,19 +120,34 @@
         <p>等级：二等奖</p>
         <img src="/img/car.jpg" alt="证书2" class="award-img">
       </div>
-      <div class="award-item">
-        <h3>编程大赛</h3>
-        <p>等级：一等奖</p>
-        <img src="/img/psc.jpg" alt="证书1" class="award-img">
-      </div>
-      <div class="award-item">
-        <h3>创新挑战赛</h3>
-        <p>等级：二等奖</p>
-        <img src="/img/car.jpg" alt="证书2" class="award-img">
-      </div>
-      <!-- 可以继续添加其他比赛证书 -->
     </div>
   </section>
+
+  <section class="experience">
+    <h2>项目经历</h2>
+    <ul class="project-list">
+      <!-- 第一个项目 -->
+      <li class="project-item">
+        <h3><a href="project1.html">前端开发工程师 | 腾讯科技</a></h3>
+        <p>负责公司官网的前端开发与维护，参与多个大型项目的开发与优化，使用React、Vue等框架进行开发。</p>
+        <img src="/pages/image/yang/sheep1.png" alt="项目1" class="project-thumbnail">
+      </li>
+      <!-- 第二个项目 -->
+      <li class="project-item">
+        <h3><a href="project2.html">后端开发工程师 | 百度</a></h3>
+        <p>参与公司搜索引擎系统的后台开发与优化，主要使用Node.js和Python。</p>
+        <img src="/pages/image/yang/sheep2.png" alt="项目2" class="project-thumbnail">
+      </li>
+      <!-- 第三个项目 -->
+      <li class="project-item">
+        <h3><a href="project3.html">移动端开发工程师 | 字节跳动</a></h3>
+        <p>负责公司APP的移动端功能开发和性能优化，使用React Native进行开发。</p>
+        <img src="/pages/image/yang/sheep3.png" alt="项目3" class="project-thumbnail">
+      </li>
+    </ul>
+  </section>
+
+
 
   <section class="skills">
     <h2>技能</h2>
@@ -137,6 +161,7 @@
       <li>Python</li>
     </ul>
   </section>
+
   <section>
     <h2>其他</h2>
     <nav class="navbar">

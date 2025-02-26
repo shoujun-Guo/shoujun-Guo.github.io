@@ -15,31 +15,36 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
+/* 使背景图片适应容器并居中 */
 header {
-  text-align: center;
-  margin-bottom: 20px;
-  background-size: cover;
-  background: url(/img/bgc.jpg) center;
   position: relative;
-  padding: 20px 0px;
-  border-radius: 10px;
-  color: #fff;
+  background: url('/img/xk.jpg') no-repeat center center;
+  background-size: cover;
+  height: 300px;  /* 你可以根据需要调整高度 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
-
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  color: #efefef;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.profile-photo {
+  border-radius: 50%;
+  width: 120px;  /* 头像大小 */
+  height: 120px;
+  margin-bottom: 20px;  /* 头像和文本之间的间距 */
 }
 
-header p {
-  margin: 5px 0;
-  font-size: 1.2em;
-  color: #eee;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+h1 {
+  font-size: 36px;  /* 姓名字体大小 */
+  margin: 10px 0;
+}
+
+p {
+  font-size: 18px;  /* 标语字体大小 */
+  font-style: italic;
 }
 
 h2 {
@@ -468,4 +473,105 @@ button {
   background-color: #4CAF50;  /* 悬停时背景色改为绿色 */
   color: #fff;                /* 悬停时字体变为白色 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* 添加按钮阴影 */
+}
+.project-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+.project-item h3 a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.project-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+.project-thumbnail {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+.project-detail {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 16px;
+  color: #666;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.project-description p, .project-details p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.project-technologies ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-technologies li {
+  font-size: 16px;
+  color: #555;
+}
+
+.project-images .image-gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.project-images .project-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+.project-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a {
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+}
+.copy-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.copy-button:hover {
+  background-color: #45a049;
 }
