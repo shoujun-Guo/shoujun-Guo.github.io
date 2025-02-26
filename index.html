@@ -17,6 +17,17 @@
         alert("密码错误，请重新输入。");
       }
     }
+    function GallerycheckPassword() {
+      // 获取用户输入的密码
+      var userPassword = prompt("请输入访问密码：", "7788");
+
+      // 密码正确时跳转到日记页面
+      if (userPassword === "7788") {
+        window.location.href = "gallery.html";  // 跳转到日记页面
+      } else {
+        alert("密码错误，请重新输入。");
+      }
+    }
     function copyPhoneNumber() {
       var phoneNumber = document.getElementById("phone-number").innerText;
       // 检查 Clipboard API 是否可用
@@ -79,7 +90,7 @@
 
   <section class="education">
     <h2>教育背景</h2>
-    <ul>
+    <ul style="text-align: center">
       <li>
         <h3>西安电子科技大学</h3>
         <p>电子信息科学与技术 | 本科</p>
@@ -127,23 +138,35 @@
     <h2>项目经历</h2>
     <ul class="project-list">
       <!-- 第一个项目 -->
+      <a href="project/project1.html">
       <li class="project-item">
-        <h3><a href="project1.html">前端开发工程师 | 腾讯科技</a></h3>
+        <h3 class="project-title">前端开发工程师 | 腾讯科技</h3>
         <p>负责公司官网的前端开发与维护，参与多个大型项目的开发与优化，使用React、Vue等框架进行开发。</p>
-        <img src="/pages/image/yang/sheep1.png" alt="项目1" class="project-thumbnail">
+        <img src="/img/car.jpg" alt="项目1" class="project-thumbnail">
+        <img src="/img/car.jpg" alt="项目1" class="project-thumbnail">
+        <img src="/img/car.jpg" alt="项目1" class="project-thumbnail">
       </li>
+      </a>
       <!-- 第二个项目 -->
+      <a href="project/project2.html">
       <li class="project-item">
-        <h3><a href="project2.html">后端开发工程师 | 百度</a></h3>
-        <p>参与公司搜索引擎系统的后台开发与优化，主要使用Node.js和Python。</p>
-        <img src="/pages/image/yang/sheep2.png" alt="项目2" class="project-thumbnail">
+        <h3>MathPro | 桌面端数据处理工具</h3>
+        <p>使用QT开发的一个数学工具，可以进行函数的求解、求导、积分、三维绘图、绘制动画等功能...</p>
+        <img src="/img/m1.png" alt="项目1" class="project-thumbnail">
+        <img src="/img/m3.png" alt="项目1" class="project-thumbnail">
+        <img src="/img/m4.png" alt="项目1" class="project-thumbnail">
       </li>
+      </a>
       <!-- 第三个项目 -->
-      <li class="project-item">
-        <h3><a href="project3.html">移动端开发工程师 | 字节跳动</a></h3>
-        <p>负责公司APP的移动端功能开发和性能优化，使用React Native进行开发。</p>
-        <img src="/pages/image/yang/sheep3.png" alt="项目3" class="project-thumbnail">
-      </li>
+      <a href="project/project3.html">
+        <li class="project-item">
+          <h3>MathPro | 桌面端数据处理工具</h3>
+          <p>使用QT开发的一个数学工具，可以进行函数的求解、求导、积分、三维绘图、绘制动画等功能...</p>
+          <img src="/img/m1.png" alt="项目1" class="project-thumbnail">
+          <img src="/img/m3.png" alt="项目1" class="project-thumbnail">
+          <img src="/img/m4.png" alt="项目1" class="project-thumbnail">
+        </li>
+      </a>
     </ul>
   </section>
 
@@ -151,7 +174,7 @@
 
   <section class="skills">
     <h2>技能</h2>
-    <ul>
+    <ul style="margin-top: 15px;">
       <li>HTML, CSS, JavaScript</li>
       <li>React, Vue.js</li>
       <li>Node.js, Express</li>
@@ -166,13 +189,19 @@
     <h2>其他</h2>
     <nav class="navbar">
       <ul class="nav-list">
-        <li><a href="blog_list.html" class="nav-button">个人博客</a></li>
-        <li><a href="gallery.html" class="nav-button">图库</a></li>
-        <li><a href="music.html" class="nav-button">音乐</a></li>
+<!--        <li><a href="/blog/blog_list.html" class="nav-button">个人博客</a></li>-->
+<!--        <li><a href="gallery.html" class="nav-button">图库</a></li>-->
+        <li><button onclick="GallerycheckPassword()" class="nav-button" >图库</button></li>
+<!--        <li><a href="music.html" class="nav-button">音乐</a></li>-->
         <li><button onclick="checkPassword()" class="nav-button" >日记</button></li>
       </ul>
     </nav>
   </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 郭守军个人网站 | 保留所有权利</p>
+<!--    <p>本网站所展示的所有信息。</p>-->
+  </footer>
 
 </div>
 </body>

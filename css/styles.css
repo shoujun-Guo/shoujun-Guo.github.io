@@ -6,6 +6,9 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
+a{
+  text-decoration: none;
+}
 
 .resume {
   max-width: 800px;
@@ -472,7 +475,7 @@ button {
 .nav-button:hover {
   background-color: #4CAF50;  /* 悬停时背景色改为绿色 */
   color: #fff;                /* 悬停时字体变为白色 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* 添加按钮阴影 */
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  !* 添加按钮阴影 *!*/
 }
 .project-list {
   list-style-type: none;
@@ -480,9 +483,18 @@ button {
 }
 
 .project-item {
-  margin-bottom: 20px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
 }
-
+.project-title{
+  text-align: center;
+}
 .project-item h3 a {
   color: #007bff;
   text-decoration: none;
@@ -494,11 +506,31 @@ button {
   color: #666;
 }
 
+/*.project-thumbnail {*/
+/*  width: 200px;*/
+/*  height: 160px;*/
+/*  margin-top: 15px;*/
+/*}*/
 .project-thumbnail {
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
+  width: 30%; /* 确保图片宽度适应容器 */
+  height: auto; /* 保持图片的纵横比 */
+  max-width: 400px; /* 限制图片最大宽度，适应大屏设备 */
+  margin-top: 15px;
 }
+
+/* 响应式设计：针对不同屏幕大小的调整 */
+@media (max-width: 1024px) {
+  .project-thumbnail {
+    max-width: 100%; /* 在平板及以下设备上，图片宽度占满容器 */
+  }
+}
+
+@media (max-width: 768px) {
+  .project-thumbnail {
+    max-width: 100%; /* 在手机端上，图片宽度也适应容器 */
+  }
+}
+
 .project-detail {
   padding: 20px;
   max-width: 800px;
@@ -575,3 +607,24 @@ footer a {
 .copy-button:hover {
   background-color: #45a049;
 }
+.footer {
+  background-color: #413e3e;
+  color: #fff;
+  text-align: center;
+  padding: 5px 20px;  /* 缩小上下内边距 */
+  font-size: 12px;  /* 缩小字体 */
+  margin-top: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 8px 15px;  /* 小屏幕设备上进一步缩小内边距 */
+    font-size: 10px;  /* 小屏幕上字体再缩小一些 */
+  }
+}
+
+
