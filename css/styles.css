@@ -171,7 +171,7 @@ ul li {
 
 /* 新增比赛证书展示部分样式 */
 .awards {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .awards h2 {
@@ -627,4 +627,36 @@ footer a {
   }
 }
 
+/* 为 .contact-item 设置 flexbox 布局，使其所有内容都排成一行 */
+.Phone-contact-item {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+.phone-container {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+}
+
+.phone-container p {
+  margin-right: 10px; /* 给电话号码和按钮之间添加间距 */
+  margin-bottom: 0;   /* 取消 <p> 标签的默认底部间距 */
+}
+
+.copy-button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background-color: #45a049;
+}
 

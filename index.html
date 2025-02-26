@@ -30,23 +30,28 @@
     }
     function copyPhoneNumber() {
       var phoneNumber = document.getElementById("phone-number").innerText;
-      // 检查 Clipboard API 是否可用
+      console.log("电话号码：" + phoneNumber); // 打印电话号码
+
       if (navigator.clipboard) {
-        // 使用 Clipboard API 复制电话号码
         navigator.clipboard.writeText(phoneNumber).then(function() {
           alert("电话号码已复制！");
         }).catch(function(error) {
+          console.error("复制失败:", error);  // 打印错误信息
           alert("复制失败，请重试！错误: " + error);
         });
       } else {
-        // 如果 Clipboard API 不可用，使用旧的方法
         var textArea = document.createElement("textarea");
         textArea.value = phoneNumber;
         document.body.appendChild(textArea);
         textArea.select();
-        document.execCommand("copy");
+        try {
+          document.execCommand("copy");
+          alert("电话号码已复制！");
+        } catch (error) {
+          console.error("旧方法复制失败:", error);
+          alert("复制失败，请重试！");
+        }
         document.body.removeChild(textArea);
-        alert("电话号码已复制！");
       }
     }
 
@@ -64,9 +69,12 @@
   <section class="contact-info">
     <h2>联系方式</h2>
     <div class="contact-grid">
-      <div class="contact-item">
-        <strong>电话:</strong> 18197243579
-        <button onclick="copyPhoneNumber()" class="copy-button">复制</button>
+      <div class="Phone-contact-item">
+        <strong>电话:&nbsp;</strong>
+        <div class="phone-container">
+          <p id="phone-number">18197243579</p>
+          <button onclick="copyPhoneNumber()" class="copy-button">复制</button>
+        </div>
       </div>
       <div class="contact-item">
         <strong>邮箱:</strong> 1417839614@qq.com
@@ -87,6 +95,7 @@
       </div>
     </div>
   </section>
+
 
   <section class="education">
     <h2>教育背景</h2>
