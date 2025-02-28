@@ -3,58 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>前端开发工程师 | 腾讯科技 - 项目详情</title>
+
+    <title>校园失物招领系统 | 西安电子科技大学 - 项目详情</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+<div class="resume">
 <div class="project-detail">
     <header>
-        <h1>前端开发工程师 | 腾讯科技</h1>
-        <p>项目周期：2020年6月 - 2021年6月</p>
+        <h1>校园失物招领系统</h1>
+        <p>项目周期：2020年9月 - 2024年6月</p>
+        <a href="../index.html"><button class="goBackButton">返回主页</button></a>
     </header>
-
     <section class="project-description">
         <h2>项目简介</h2>
-        <p>在腾讯科技担任前端开发工程师，主要负责公司官网的前端开发与维护，参与多个大型项目的开发与优化。使用React和Vue等前端框架，确保项目的高效运行和可维护性。</p>
+        <ul style="list-style-type: none;">
+          <li>
+              这是一个校园失物招领系统，一个便捷高效的平台，能帮助师生快速找回丢失物品。用户通过拍照上传失物信息，系统自动发布并展示在校园失物招领页面。系统智能提取物品信息，并与学校数据库比对，精准匹配失主（学生或教师），并通过短信或微信通知其领取。为保护隐私，失物认领后信息自动删除。系统还设有激励机制，用户成功发布失物信息可获得话费奖励，鼓励师生积极参与，提升系统活跃度与责任感。</li>
+        </ul>
+    </section>
+    <section class="project-images">
+        <h2>项目截图</h2>
+        <div class="image-gallery">
+            <!-- 大图展示部分 -->
+            <div class="main-image">
+                <img src="/img/find/find1.jpg" alt="项目截图1" class="project-img large">
+                <p>Web端页面</p>
+            </div>
+            <!-- 三张小图部分 -->
+            <div class="thumbnail-gallery">
+                <img src="/img/find/findPhone2.jpg" alt="项目截图2" class="project-img thumbnail">
+                <img src="/img/find/findPhone3.jpg" alt="项目截图3" class="project-img thumbnail">
+                <img src="/img/find/findPhone4.jpg" alt="项目截图4" class="project-img thumbnail">
+            </div>
+            <p style="margin-top: 10px;font-style: normal">微信小程序页面</p>
+        </div>
     </section>
 
     <section class="project-details">
         <h2>项目详情</h2>
-        <p>在此项目中，我负责了前端页面的设计、API接入、数据展示、交互效果等。通过模块化开发和组件化设计，使得代码更加简洁，提升了开发效率。</p>
-        <p>此外，我还参与了多个优化任务，提升了网站的响应速度和SEO优化，保证了跨浏览器的兼容性。</p>
-    </section>
-
-    <section class="project-technologies">
-        <h2>使用技术</h2>
-        <ul>
-            <li>React.js</li>
-            <li>Vue.js</li>
-            <li>HTML5, CSS3, JavaScript</li>
-            <li>Webpack</li>
-            <li>Git</li>
+        <ul style="list-style-type: none;">
+            <li>这是一个校园失物招领系统，旨在帮助师生快速找回丢失的物品。用户只需拍照上传捡到的物品信息，系统会自动发布该信息，展示在校园失物招领页面上。系统通过调用接口与学校学生信息数据库比对，能够智能提取物品上的信息，并准确匹配丢失物品的所有者（学生或教师）。一旦匹配成功，系统会通过短信或微信提醒相关人员及时领取失物。</li>
+            <li>为了保护用户隐私，失物信息一旦被认领，系统将自动删除发布信息，确保只有相关的丢失者可以接收到信息。此外，系统还设有激励机制，当用户成功上传并发布10条失物招领信息时，系统会赠送一定金额的奖励话费，激励更多的师生参与物品归还工作，从而提高系统的活跃度与使用率。
+                该系统不仅优化了校园内物品找回的流程，而且鼓励师生在社区中发挥积极作用，增强了大家的社会责任感与帮助他人的意识。</li>
         </ul>
     </section>
 
-    <section class="project-images">
-        <h2>项目截图</h2>
-        <div class="image-gallery">
-            <img src="/img/work1.jpg" alt="项目截图1" class="project-img">
-            <img src="/pages/image/yang/sheep2.png" alt="项目截图2" class="project-img">
-            <img src="/pages/image/yang/sheep3.png" alt="项目截图3" class="project-img">
+        <section class="project-details">
+            <h2>主要功能与操作步骤</h2>
+            <ul>
+                <li>
+                    <strong>用户上传失物信息</strong>: 用户在捡到物品后，通过拍照上传失物的图片信息，并填写相关的物品描述信息，如物品种类、品牌、颜色、丢失地点等。系统会自动提取图片中的文字信息（如身份证号码、校园一卡通等），并通过与学校的学生信息数据库进行比对，查找匹配的失主。
+                </li>
+                <li>
+                    <strong>物品信息发布</strong>: 上传成功后，系统会将该信息发布到校园失物招领页面，展示在失物信息栏中，供其他用户查看。物品发布后，系统会自动标记状态为“待认领”。
+                </li>
+                <li>
+                    <strong>失主身份匹配与通知</strong>: 系统会通过接口与学校数据库进行匹配，自动识别失物的所有者。当系统找到匹配的学生或教师信息时，系统会发送短信和微信通知，告知失主有物品等待认领，并附上领取地点和时间等相关信息。
+                </li>
+                <li>
+                    <strong>一键领取与删除功能</strong>: 一旦失主前往指定地点领取失物，点击系统中的“领取”按钮，失物信息将从系统中自动删除，确保失物信息的隐私得到保护。
+                </li>
+                <li>
+                    <strong>激励机制</strong>: 为鼓励更多用户参与物品归还的工作，系统设置了激励机制。用户上传并成功发布10条失物招领信息后，系统会赠送用户10元话费作为奖励，旨在提高系统的活跃度和参与积极性。
+                </li>
+                <li>
+                    <strong>失主发布物品信息寻找失物</strong>: 当其他师生丢失物品时，可以在系统中发布失物信息，系统会自动根据上传的物品信息进行展示，并通过相似机制进行匹配，帮助失主找回失物。
+                </li>
+            </ul>
+        </section>
+
+        <section class="project-details">
+            <h2>系统优点</h2>
+            <ul>
+                <li><strong>高效精准的物品匹配</strong>: 通过与学校学生信息数据库的接口对接，系统能够精准地识别丢失物品的所有者，大大减少了传统失物招领方式中的信息不对称问题，提升了物品找回的效率。</li>
+                <li><strong>隐私保护</strong>: 系统在物品认领后会自动删除信息，避免失主信息长期暴露，从而更好地保护了师生的隐私。</li>
+                <li><strong>便捷的用户体验</strong>: 该系统通过简洁的界面设计，使用户能够快速上传失物信息、查看失物招领信息、进行认领操作。无论是捡到失物的用户，还是失主，都可以方便快捷地进行操作。</li>
+                <li><strong>激励机制的设计</strong>: 系统通过设置奖励机制，鼓励更多的师生参与物品归还工作。此举不仅提升了系统的活跃度，还鼓励大家在遇到失物时积极帮助他人，推动了校园文化建设。</li>
+                <li><strong>信息透明与公开</strong>: 通过系统发布的失物招领信息，师生可以快速了解校园内失物的情况，并通过系统的搜索功能查找丢失物品，减少了传统失物招领信息传递不及时、信息不对称的问题。</li>
+                <li><strong>全面的通知服务</strong>: 系统不仅通过短信和微信提醒失主，还能即时更新物品的领取状态。这确保了物品丢失者可以及时了解物品的领取情况，并快速做出反应。</li>
+                <li><strong>便于管理与统计</strong>: 系统的后台可以实时跟踪每一条失物信息的状态变化，包括上传、认领、领取等情况，帮助管理员进行高效的统计与管理工作。</li>
+            </ul>
+        </section>
+
+        <section class="project-technologies">
+            <h2>项目技术栈</h2>
+            <ul>
+                <li>前端技术：使用Vue.js主流前端框架，确保页面的动态更新和高效渲染。</li>
+                <li>后端技术：通过 Node.js 和 PHP语言的ThinkPHP5.1框架搭建后台服务，处理用户上传的物品信息和与数据库的接口对接。</li>
+                <li>数据库：使用 MySQL 数据库存储失物招领信息、用户信息等，保证数据的高效存储和查询。</li>
+                <li>API 接口：与学校的学生信息数据库进行接口对接，进行失物信息的自动匹配。</li>
+                <li>短信和微信通知：集成学校短信平台和微信推送服务，确保信息及时传达给失主。</li>
+            </ul>
+        </section>
+
+
+    <section class="project-links">
+        <h2>相关链接</h2>
+        <div class="link-container">
+            <a href="https://find.xidian.edu.cn/" target="_blank" class="linkButton">校园失物招领网站</a>
+            <a href="https://www.xidian.cc/" target="_blank" class="linkButton">西电导航</a>
         </div>
     </section>
 
     <section class="project-links">
-        <h2>相关链接</h2>
-        <ul>
-            <li><a href="https://www.tencent.com" target="_blank">腾讯官网</a></li>
-            <li><a href="https://github.com/shoujun-Guo" target="_blank">GitHub - 项目代码</a></li>
-        </ul>
+        <h2>微信小程序二维码</h2>
+        <div class="link-container">
+            <div class="wechat-container">
+                <img src="/img/find/findWxPhoto.png" alt="微信二维码" class="wechat-qrcode" id="wechatQRCode">
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <a href="../index.html">返回首页</a>
+    <!-- Modal for showing enlarged QR code -->
+    <div id="qrcodeModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 郭守军个人网站 | 保留所有权利</p>
     </footer>
+
+</div>
 </div>
 
 </body>

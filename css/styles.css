@@ -11,8 +11,8 @@ a{
 }
 
 .resume {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 1000px;
+  margin: 10px auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -492,11 +492,14 @@ button {
   border-radius: 10px;
   text-align: center;
 }
+.project-item:hover{
+  background-color: #edf2f6;
+}
 .project-title{
   text-align: center;
 }
 .project-item h3 a {
-  color: #007bff;
+  color: white;
   text-decoration: none;
   font-size: 18px;
 }
@@ -506,28 +509,27 @@ button {
   color: #666;
 }
 
-/*.project-thumbnail {*/
-/*  width: 200px;*/
-/*  height: 160px;*/
-/*  margin-top: 15px;*/
-/*}*/
 .project-thumbnail {
-  width: 30%; /* 确保图片宽度适应容器 */
+  width: 40%; /* 确保图片宽度适应容器 */
   height: auto; /* 保持图片的纵横比 */
-  max-width: 400px; /* 限制图片最大宽度，适应大屏设备 */
+  max-width: 500px; /* 限制图片最大宽度，适应大屏设备 */
+  max-height: 400px;
   margin-top: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 响应式设计：针对不同屏幕大小的调整 */
 @media (max-width: 1024px) {
   .project-thumbnail {
     max-width: 100%; /* 在平板及以下设备上，图片宽度占满容器 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
 @media (max-width: 768px) {
   .project-thumbnail {
     max-width: 100%; /* 在手机端上，图片宽度也适应容器 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -544,45 +546,55 @@ header h1 {
 }
 
 header p {
-  font-size: 16px;
-  color: #666;
+  font-size: 18px;
+  color: #8e8ea4;
 }
 
 h2 {
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   color: #333;
-}
-
-.project-description p, .project-details p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
 }
 
 .project-technologies ul {
   list-style-type: none;
   padding: 0;
 }
+.project-description ul li{
+  font-size: 18px;
+  color: #444;
+  font-style: normal;
+  line-height: 30px; /* 行高*/
+  text-indent: 36px;/* 规定文本块中首行文本的缩进*/
+  text-align: justify;/* 改变字与字之间的间距使得每行对齐*/
+  text-justify: inter-word;/* 改变字与字之间的间距使得每行对齐*/
+  margin: 10px 0px;
+}
+.project-details ul li{
+  font-size: 18px;
+  color: #444;
+  font-style: normal;
+  line-height: 30px; /* 行高*/
+  text-indent: 36px;/* 规定文本块中首行文本的缩进*/
+  text-align: justify;/* 改变字与字之间的间距使得每行对齐*/
+  text-justify: inter-word;/* 改变字与字之间的间距使得每行对齐*/
+  margin: 10px 0px;
+}
 
 .project-technologies li {
-  font-size: 16px;
-  color: #555;
+  font-size: 18px;
+  color: #444;
+  font-style: normal;
+  line-height: 30px; /* 行高*/
+  text-indent: 36px;/* 规定文本块中首行文本的缩进*/
+  text-align: justify;/* 改变字与字之间的间距使得每行对齐*/
+  text-justify: inter-word;/* 改变字与字之间的间距使得每行对齐*/
+  margin: 10px 0px;
 }
 
-.project-images .image-gallery {
-  display: flex;
-  gap: 10px;
-}
-
-.project-images .project-img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-}
 
 .project-links a {
-  color: #007bff;
+  color: white;
   text-decoration: none;
 }
 
@@ -661,3 +673,219 @@ footer a {
   background-color: #45a049;
 }
 
+.goBackButton {
+  background-color: #4CAF50; /* 绿色背景 */
+  color: white;              /* 白色文字 */
+  border: none;              /* 无边框 */
+  padding: 10px 20px;        /* 上下左右间距 */
+  text-align: center;        /* 文字居中 */
+  text-decoration: none;     /* 去掉链接下划线 */
+  display: inline-block;     /* 使按钮显示为行内块元素 */
+  font-size: 16px;           /* 字体大小 */
+  border-radius: 8px;        /* 圆角 */
+  cursor: pointer;          /* 鼠标悬停时显示手形 */
+  transition: background-color 0.3s ease; /* 背景色变化动画 */
+  margin-top: 30px;
+}
+
+.goBackButton:hover {
+  background-color: #45a049; /* 悬停时背景颜色 */
+}
+/*相关链接部分*/
+
+.link-container {
+  display: flex;                   /* 使用Flexbox布局 */
+  justify-content: center;         /* 居中对齐 */
+  gap: 20px;                       /* 设置链接之间的间距 */
+  flex-wrap: wrap;                 /* 在小屏幕上自动换行 */
+}
+
+.linkButton {
+  margin-top: 20px;
+  display: inline-block;
+  background-color: #4CAF50; /* 绿色背景 */
+  color: white;              /* 白色文字 */
+  padding: 10px 20px;        /* 上下左右间距 */
+  border-radius: 5px;        /* 圆角 */
+  text-decoration: none;     /* 去掉下划线 */
+  font-size: 16px;           /* 字体大小 */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* 背景色和缩放动画 */
+}
+
+.linkButton:hover {
+  background-color: #45a049; /* 悬停时背景颜色 */
+  transform: scale(1.05);     /* 悬停时放大效果 */
+}
+
+.linkButton:active {
+  background-color: #388e3c; /* 点击时背景颜色 */
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .linkButton {
+    padding: 8px 16px;        /* 在小屏幕下调整按钮大小 */
+    font-size: 14px;          /* 调整字体大小 */
+  }
+
+  .link-container {
+    justify-content: space-around; /* 在小屏幕上分散排列 */
+  }
+}
+
+/**/
+.project-links h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.link-container {
+  display: flex;                   /* 使用Flexbox布局 */
+  justify-content: center;         /* 居中对齐 */
+  gap: 20px;                       /* 设置链接之间的间距 */
+  flex-wrap: wrap;                 /* 在小屏幕上自动换行 */
+}
+
+/* 微信二维码容器 */
+.wechat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wechat-qrcode {
+  width: 180px;                 /* 设置二维码图片大小 */
+  height: 180px;
+  cursor: pointer;            /* 鼠标悬停时显示手形 */
+  transition: transform 0.3s;  /* 图片放大动画 */
+}
+
+.wechat-qrcode:hover {
+  transform: scale(1.1);       /* 鼠标悬停时略微放大二维码 */
+}
+
+/* Modal样式 */
+.modal {
+  display: none;               /* 默认隐藏模态框 */
+  position: fixed;              /* 固定在屏幕上 */
+  z-index: 1;                   /* 层级 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;               /* 如果需要滚动，启用 */
+  background-color: rgb(0, 0, 0); /* 背景颜色 */
+  background-color: rgba(0, 0, 0, 0.9); /* 背景色透明度 */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;             /* 设置最大宽度 */
+}
+
+#caption {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .linkButton {
+    padding: 8px 16px;        /* 在小屏幕下调整按钮大小 */
+    font-size: 14px;          /* 调整字体大小 */
+  }
+
+  .link-container {
+    justify-content: space-around; /* 在小屏幕上分散排列 */
+  }
+
+  .wechat-qrcode {
+    width: 60px;             /* 在小屏幕下调整二维码大小 */
+    height: 60px;
+  }
+}
+/*图片修改*/
+.project-images {
+  margin: 20px 0;
+
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.main-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-image p {
+  font-size: 18px;
+  margin-top: 10px;
+  font-style: normal;
+}
+.thumbnail-gallery p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.thumbnail-gallery {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  text-align: center;
+}
+
+.thumbnail-gallery img {
+  width: 30%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .thumbnail-gallery img {
+    width: 48%; /* 两列布局 */
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-gallery img {
+    width: 100%; /* 单列布局 */
+  }
+}
