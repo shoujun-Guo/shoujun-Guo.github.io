@@ -23,7 +23,7 @@ header {
   position: relative;
   background: url('/img/xk.jpg') no-repeat center center;
   background-size: cover;
-  height: 300px;  /* 你可以根据需要调整高度 */
+  /*height: 300px;  !* 你可以根据需要调整高度 *!*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,6 +140,9 @@ ul li {
 .skills ul li:nth-child(7) {
   background-color: #cce813; /* 紫色 */
 }
+.skills ul li:nth-child(8) {
+  background-color: #f4a261; /* 橙色 */
+}
 
 .skills ul li {
   padding: 5px 10px;
@@ -160,10 +163,10 @@ ul li {
   margin-bottom: 10px;
 }
 
-.wechat-qrcode {
+.wechatqrcode {
   display: block;
-  width: 200px;
-  height: 250px;
+  width: 50%;
+  height: auto;
   border-radius: 10%;
   margin: 10px auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -888,4 +891,8 @@ footer a {
   .thumbnail-gallery img {
     width: 100%; /* 单列布局 */
   }
+}
+/*MathProVideo*/
+.video-container{
+  text-align: center;
 }
